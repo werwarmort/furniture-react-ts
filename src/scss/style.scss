@@ -1,0 +1,251 @@
+@import "vars";
+@import "fonts";
+@import "reset";
+@import "libs";
+@import "global";
+
+.header {
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; // выровняли вертикальные элементы по центру
+    height: 120px;
+  }
+}
+
+.btn {
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.logo {
+  margin: 0 auto;
+}
+
+.menu {
+  padding-left: 35px;
+  padding-right: 60px;
+  &__list {
+    display: flex;
+  }
+  &__list-item {
+    padding-right: 45px;
+    padding-left: 35px;
+  }
+  &__list-link {
+    @extend %title-font;
+    color: rgba(54, 56, 56, 0.9);
+  }
+}
+
+.footer {
+  &__content {
+    background: #dfdfdf;
+    padding: 60px 0 80px;
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__info-title {
+    color: $title;
+    @extend %title-font;
+    margin-bottom: 14px;
+    line-height: 23px;
+  }
+
+  &__info-text {
+    margin-bottom: 16px;
+    max-width: 475px;
+  }
+
+  &__info-email {
+    display: block;
+    font-weight: 600;
+    font-size: 14px;
+    color: $title;
+    padding-left: 30px;
+    position: relative;
+    margin-bottom: 22px;
+    &::before {
+      content: "";
+      background-image: url(../images/envelope.svg);
+      position: absolute;
+      top: 9px;
+      left: 0px;
+      width: 17px;
+      height: 13px;
+    }
+  }
+
+  &__form {
+    display: flex;
+  }
+  &__form-input {
+    padding: 6px 10px 6px 18px;
+    border-radius: 21px;
+    background-color: transparent;
+    border: 1px solid rgba($title, 0.7);
+    width: 100%;
+    &::placeholder {
+      font-family: "Open Sans", sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 27px;
+      color: a1a1a1;
+    }
+  }
+  &__form-button {
+    background-color: $title;
+    border: none;
+    color: #fffff0;
+    border-radius: 21px;
+    font-weight: 600;
+    padding: 6px 12px;
+    min-width: 160px;
+    margin-left: 9px;
+    cursor: pointer;
+  }
+
+  &__social {
+    width: 125px;
+    margin-right: auto;
+    margin-left: 100px;
+  }
+  &__social-link {
+    padding-left: 28px;
+    position: relative;
+    &::before {
+      position: absolute;
+      content: "";
+      top: 3px;
+      left: 0;
+      width: 16px;
+      height: 16px;
+    }
+  }
+  &__social-link--facebook::before {
+    background-image: url(../images/facebook.svg);
+  }
+  &__social-link--instagram::before {
+    background-image: url(../images/instagram.svg);
+    width: 14px;
+    height: 14px;
+  }
+  &__social-link--pinterest::before {
+    background-image: url(../images/Pinterest.svg);
+  }
+  &__social-link--whatsapp::before {
+    background-image: url(../images/whatsapp.svg);
+    width: 14px;
+    height: 14px;
+  }
+  &__social-link--youtube::before {
+    background-image: url(../images/youtube.svg);
+    width: 18px;
+    height: 12px;
+    top: 4px;
+  }
+  &__social-item,
+  &__menu-item {
+    margin-bottom: 15px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  &__social-link,
+  &__menu-link {
+    color: #707070;
+  }
+
+  &__menu {
+    margin-right: 60px;
+    width: 125px;
+  }
+
+  &__copyright {
+    color: #dfdfdf;
+    background-color: $title;
+    text-align: center;
+    padding: 42px 0px 41px;
+  }
+}
+
+.blur {
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  backdrop-filter: blur(0px);
+  transform: translateX(-110%);
+  // display: none;
+  overflow: hidden;
+  position: fixed;
+  top: 0;
+  transition: 0.2s;
+}
+.blur.active {
+  backdrop-filter: blur(2px);
+  transform: translateX(0);
+  transition: 0.2s;
+  // display: block;
+}
+
+.rightside-menu.active {
+  transform: translateX(0); // toggled values
+}
+
+.rightside-menu {
+  position: fixed;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  max-width: 694px;
+  width: 100%;
+  background-color: #e0dede;
+  padding-top: 40px;
+  transform: translateX(+100%); // toggled values
+  transition: all 0.2s;
+
+  &__close {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    margin-right: 50px;
+    margin-left: 50px;
+  }
+  &__content {
+    text-align: center;
+    max-width: 485px;
+    margin: 0 auto;
+  }
+  &__logo {
+    margin-bottom: 40px;
+    display: inline-block;
+  }
+  &__title {
+    color: $title;
+    @extend %title-font;
+    font-size: 36px;
+    line-height: 51px;
+    margin-bottom: 10px;
+  }
+  &__text {
+    margin-bottom: 30px;
+  }
+  &__images {
+    max-width: 485px;
+  }
+  &__line {
+    height: 2px;
+    border: 1px solid rgb(160, 160, 160);
+    width: 250px;
+    background: #c00e0e;
+    margin: 10px auto;
+  }
+}
+
+.test {
+  margin-bottom: 20px;
+}
