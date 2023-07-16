@@ -1,8 +1,14 @@
 import bigLogo from "../images/BigLogo.svg";
 import close from "../images/close.svg";
-import rightsideImg from "../images/Rectangle.jpg";
+import rightsideImg from "../images/content/Rectangle.jpg";
 
-const RightSideMenu = ({ active, setActive }) => {
+const RightSideMenu = ({
+  active,
+  setActive,
+}: {
+  active: boolean;
+  setActive: Function;
+}) => {
   return (
     <div className={active ? "rightside-menu active" : "rightside-menu"}>
       <button className="rightside-menu__close">

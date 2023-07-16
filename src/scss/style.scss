@@ -249,3 +249,41 @@
 .test {
   margin-bottom: 20px;
 }
+
+.main {
+  // text-align: center;
+}
+
+// .top {
+//   // margin: 0 auto;
+//   // max-width: 1300px;
+//   &__slider-img {
+//     width: 600px;
+//     height: 700px;
+//   }
+//   &__slider-item {
+//     // display: flex;
+//   }
+//   &__slider-title {
+//     // display: flex;
+//   }
+//   &__slider-info {
+//     min-width: 645px;
+//   }
+//   &__slider-title {
+//     color: #363838;
+//     font-family: Montserrat;
+//     font-size: 110px;
+//     font-style: normal;
+//     font-weight: 700;
+//     line-height: normal;
+//     &::after {
+//       content: "";
+//       position: absolute;
+//       left: 0;
+//       width: 150px;
+//       background: #6d7278;
+//       bottom: 0;
+//     }
+//   }
+// }
