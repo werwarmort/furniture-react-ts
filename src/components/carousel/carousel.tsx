@@ -10,30 +10,6 @@ const Carousel = ({ children }: { children: any }) => {
   const [pages, setPages] = useState([]);
   const [offset, setOffset] = useState(0);
 
-  const handleLeftArrowClick = () => {
-    console.log("Left");
-
-    setOffset((currentOffset: number) => {
-      const newOffset = currentOffset + PAGE_WIDTH;
-
-      console.log(newOffset);
-      return Math.min(newOffset, 0);
-    });
-  };
-  const handleRightArrowClick = () => {
-    console.log("Right");
-
-    setOffset((currentOffset: number) => {
-      const newOffset = currentOffset - PAGE_WIDTH;
-
-      console.log(newOffset);
-
-      const maxOffset = -(PAGE_WIDTH * (pages.length - 1));
-
-      return Math.max(newOffset, maxOffset);
-    });
-  };
-
   useEffect(() => {
     setPages(
       Children.map(children, (child) => {
@@ -47,6 +23,21 @@ const Carousel = ({ children }: { children: any }) => {
       })
     );
   }, []);
+
+  const handleLeftArrowClick = () => {
+    setOffset((currentOffset: number) => {
+      const newOffset = currentOffset + PAGE_WIDTH;
+      return Math.min(newOffset, 0);
+    });
+  };
+
+  const handleRightArrowClick = () => {
+    setOffset((currentOffset: number) => {
+      const newOffset = currentOffset - PAGE_WIDTH;
+      const maxOffset = -(PAGE_WIDTH * (pages.length - 1));
+      return Math.max(newOffset, maxOffset);
+    });
+  };
 
   return (
     <div className="main-container">

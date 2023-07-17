@@ -251,39 +251,202 @@
 }
 
 .main {
-  // text-align: center;
 }
 
-// .top {
-//   // margin: 0 auto;
-//   // max-width: 1300px;
-//   &__slider-img {
-//     width: 600px;
-//     height: 700px;
-//   }
-//   &__slider-item {
-//     // display: flex;
-//   }
-//   &__slider-title {
-//     // display: flex;
-//   }
-//   &__slider-info {
-//     min-width: 645px;
-//   }
-//   &__slider-title {
-//     color: #363838;
-//     font-family: Montserrat;
-//     font-size: 110px;
-//     font-style: normal;
-//     font-weight: 700;
-//     line-height: normal;
-//     &::after {
-//       content: "";
-//       position: absolute;
-//       left: 0;
-//       width: 150px;
-//       background: #6d7278;
-//       bottom: 0;
-//     }
-//   }
-// }
+.top {
+  background: url(../images/content/main_slider.jpg) no-repeat;
+  background-size: 100%;
+  width: 100%;
+  height: 620px;
+}
+
+.container-fluid {
+  max-width: 1920px;
+  padding: 0 10px;
+}
+
+.new-collection {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+  text-align: center;
+  padding: 45px 0 105px;
+  &__title {
+    color: $title;
+    font-size: 35px;
+    line-height: 51px;
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      width: 250px;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      background: #6d7278;
+    }
+  }
+  &__text {
+    max-width: 730px;
+    margin: 0 auto 30px;
+  }
+}
+
+.collection {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 30px;
+  &__item {
+    position: relative;
+
+    &:hover {
+      .collection__info {
+        opacity: 1;
+      }
+    }
+  }
+  &__images {
+    min-height: 350px;
+    object-fit: cover; // если изображение будет больше, то оно все равно обрежется до квадратного
+  }
+  &__info {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(#fff, 0.7);
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.5s;
+  }
+  &__info-title {
+    font-size: 20px;
+    line-height: 25px;
+    color: $title;
+    margin-bottom: 19px;
+    padding-bottom: 19px;
+    position: relative;
+    &::after {
+      content: "";
+      bottom: 0;
+      position: absolute;
+      height: 1px;
+      background: #6d7278;
+      width: 200px;
+      margin: 0 auto;
+      right: 0;
+      left: 0;
+    }
+  }
+  &__info-text {
+    font-weight: 600;
+    font-size: 14px;
+    color: #707070;
+  }
+}
+
+.decor {
+  padding: 170px 0 155px;
+  background-image: url(../images/content/decor-bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 600px;
+  &__title {
+    max-width: 540px;
+    color: $title;
+    font-size: 60px;
+    line-height: 80px;
+  }
+  &__text {
+    max-width: 540px;
+  }
+}
+
+.works-path {
+  padding: 80px 0 30px;
+  &__title {
+    @extend %title-font;
+    text-align: center;
+    columns: $title;
+    margin-bottom: 40px;
+    font-size: 36px;
+    line-height: 51px;
+  }
+  &__items-box {
+    display: flex;
+    align-items: flex-end;
+    // justify-content: space-between;
+    border-bottom: 2px solid rgba($title, 0.7);
+    position: relative;
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background-color: $title;
+    }
+  }
+  &__item {
+    width: 250px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: relative;
+  }
+
+  &__item--producton {
+    margin-left: 317px;
+    margin-bottom: 20px;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -20px;
+      left: 0;
+      height: 20px;
+      width: 2px;
+      background: rgba($title, 0.7);
+    }
+  }
+
+  &__item--measurements {
+    padding-top: 30px;
+    margin-left: 305px;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 20px;
+      width: 2px;
+      background: rgba($title, 0.7);
+    }
+  }
+
+  &__item--production,
+  &__item--consultation {
+    padding-bottom: 10px;
+  }
+
+  &__item-title {
+    margin-left: 13px;
+    color: $title;
+    @extend %title-font;
+  }
+  &__item-text {
+    margin-top: 13px;
+    // margin-bottom: 28px;
+  }
+}

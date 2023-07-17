@@ -1,4 +1,12 @@
 import menuSvg from "../images/icon_menu.svg";
+import collection1 from "../images/content/collection-1.jpg";
+import collection2 from "../images/content/collection-2.jpg";
+import collection3 from "../images/content/collection-3.jpg";
+import collection4 from "../images/content/collection-4.jpg";
+import collection5 from "../images/content/collection-5.jpg";
+import mesuringTape from "../images/measuring-tape.svg";
+import sofa from "../images/sofa.svg";
+import graphicTool from "../images/graphic-tool.svg";
 import sliderImg from "../images/content/Group 1.png";
 import RightSideMenu from "./menu";
 import React, { useState } from "react";
@@ -54,49 +62,192 @@ const HomePage = () => {
         </header>
 
         <main className="main">
-          {/* <div className="top"> */}
-          {/* <div className="container"> */}
-          {/* <div className="top__inner"> */}
-          {/* <div className="top__slider"> */}
-          <Carousel>
-            <div className="top__slider-item item-1">
-              <img className="top__slider-img" src={sliderImg} alt="images" />
-              <div className="top__slider-info">
-                <h2 className="top__slider-title">Furniture collection 1</h2>
-                <p className="top__slider-text">
-                  Deep v you probably haven't heard of them banh mi synth
-                  actually affogato. Aesthetic lyft ethical drinking vinegar
-                  austint
-                </p>
+          <div className="top">
+            <Carousel>
+              <div className="top__slider-item item-1">
+                <img className="top__slider-img" src={sliderImg} alt="images" />
+                <div className="top__slider-info">
+                  <h2 className="top__slider-title">Furniture collection</h2>
+                  <p className="top__slider-text">
+                    Deep v you probably haven't heard of them banh mi synth
+                    actually affogato. Aesthetic lyft ethical drinking vinegar
+                    austint
+                  </p>
+                </div>
+              </div>
+              <div className="top__slider-item item-2">
+                <img className="top__slider-img" src={sliderImg} alt="images" />
+                <div className="top__slider-info">
+                  <h2 className="top__slider-title">Furniture collection</h2>
+                  <p className="top__slider-text">
+                    Deep v you probably haven't heard of them banh mi synth
+                    actually affogato. Aesthetic lyft ethical drinking vinegar
+                    austint
+                  </p>
+                </div>
+              </div>
+              <div className="top__slider-item item-3">
+                <img className="top__slider-img" src={sliderImg} alt="images" />
+                <div className="top__slider-info">
+                  <h2 className="top__slider-title">Furniture collection</h2>
+                  <p className="top__slider-text">
+                    Deep v you probably haven't heard of them banh mi synth
+                    actually affogato. Aesthetic lyft ethical drinking vinegar
+                    austint
+                  </p>
+                </div>
+              </div>
+            </Carousel>
+          </div>
+
+          <section className="new-collection">
+            <div className="container-fluid">
+              <h6 className="new-collection__title">
+                Furniture new collection
+              </h6>
+              <p className="new-collection__text">
+                Deep v you probably haven't heard of them banh mi synth actually
+                affogato. Aesthetic lyft ethical drinking vinegar austint
+              </p>
+              <div className="collection">
+                <div className="collection__item">
+                  <img
+                    className="collection__images"
+                    src={collection1}
+                    alt=""
+                  />
+                  <div className="collection__info">
+                    <div className="collection__info-title">
+                      Truffaut literally trust
+                    </div>
+                    <div className="collection__info-text">
+                      Living room furntiture | Chair
+                    </div>
+                  </div>
+                </div>
+
+                <div className="collection__item">
+                  <img
+                    className="collection__images"
+                    src={collection2}
+                    alt=""
+                  />
+                  <div className="collection__info">
+                    <div className="collection__info-title">
+                      Truffaut literally trust
+                    </div>
+                    <div className="collection__info-text">
+                      Living room furntiture | Chair
+                    </div>
+                  </div>
+                </div>
+
+                <div className="collection__item">
+                  <img
+                    className="collection__images"
+                    src={collection3}
+                    alt=""
+                  />
+                  <div className="collection__info">
+                    <div className="collection__info-title">
+                      Truffaut literally trust
+                    </div>
+                    <div className="collection__info-text">
+                      Living room furntiture | Chair
+                    </div>
+                  </div>
+                </div>
+
+                <div className="collection__item">
+                  <img
+                    className="collection__images"
+                    src={collection4}
+                    alt=""
+                  />
+                  <div className="collection__info">
+                    <div className="collection__info-title">
+                      Truffaut literally trust
+                    </div>
+                    <div className="collection__info-text">
+                      Living room furntiture | Chair
+                    </div>
+                  </div>
+                </div>
+
+                <div className="collection__item">
+                  <img
+                    className="collection__images"
+                    src={collection5}
+                    alt=""
+                  />
+                  <div className="collection__info">
+                    <div className="collection__info-title">
+                      Truffaut literally trust
+                    </div>
+                    <div className="collection__info-text">
+                      Living room furntiture | Chair
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-            <div className="top__slider-item item-2">
-              <img className="top__slider-img" src={sliderImg} alt="images" />
-              <div className="top__slider-info">
-                <h2 className="top__slider-title">Furniture collection 2</h2>
-                <p className="top__slider-text">
-                  Deep v you probably haven't heard of them banh mi synth
-                  actually affogato. Aesthetic lyft ethical drinking vinegar
-                  austint
-                </p>
+          </section>
+
+          <section className="decor">
+            <div className="container">
+              <h2 className="decor__title">Aesthetic ethical drinking</h2>
+              <p className="decor__text">
+                Deep v you probably haven't heard of them banh mi synth actually
+                affogato. Artlyft ethical the one drinking vinegar austint
+              </p>
+            </div>
+          </section>
+
+          <section className="works-path">
+            <div className="container">
+              <h3 className="works-path__title">how it works</h3>
+              <div className="works-path__items">
+                <div className="works-path__items-box">
+                  <div className="works-path__item  works-path__item--consultation">
+                    <img
+                      className="works-path__item-img"
+                      src={graphicTool}
+                      alt=""
+                    />
+                    <h6 className="works-path__item-title">
+                      Designer Consultation
+                    </h6>
+                    <p className="works-path__item-text">
+                      Kinfolk scenester authentic craft beer truffaut irony
+                      intelligentsia YOLO lomo bushwick coloring book. Semiotics
+                      man bun venmo viral cliche
+                    </p>
+                  </div>
+                  <div className="works-path__item works-path__item--producton">
+                    <img className="works-path__item-img" src={sofa} alt="" />
+                    <h6 className="works-path__item-title">Production</h6>
+                    <p className="works-path__item-text">
+                      Intelligentsia YOLO lomo bushwick coloring book. Semiotics
+                      man bun venmo viral cliche
+                    </p>
+                  </div>
+                </div>
+                <div className="works-path__item  works-path__item--measurements">
+                  <img
+                    className="works-path__item-img"
+                    src={mesuringTape}
+                    alt=""
+                  />
+                  <h6 className="works-path__item-title">Measurements</h6>
+                  <p className="works-path__item-text">
+                    Everyday carry actually neutra authentic kogi shabby chic
+                  </p>
+                </div>
               </div>
             </div>
-            <div className="top__slider-item item-3">
-              <img className="top__slider-img" src={sliderImg} alt="images" />
-              <div className="top__slider-info">
-                <h2 className="top__slider-title">Furniture collection 3</h2>
-                <p className="top__slider-text">
-                  Deep v you probably haven't heard of them banh mi synth
-                  actually affogato. Aesthetic lyft ethical drinking vinegar
-                  austint
-                </p>
-              </div>
-            </div>
-          </Carousel>
-          {/* </div> */}
-          {/* </div> */}
-          {/* </div> */}
-          {/* </div> */}
+          </section>
+
+          <div className="gallery"></div>
         </main>
 
         <footer className="footer">
