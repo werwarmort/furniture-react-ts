@@ -14,9 +14,6 @@
 
   &__item {
     cursor: pointer;
-    // background: green;
-    // object-fit: cover;
-    // width: 100%;
 
     &:first-child {
       grid-column: span 2;
@@ -29,10 +26,11 @@
   border-radius: 8px;
   object-fit: cover;
   width: 100%;
+  max-height: 1150px;
   height: 100%;
 }
 
-button {
+.filterButtons {
   cursor: pointer;
   outline: none;
   border: 0;
@@ -44,15 +42,16 @@ button {
   border-radius: 20px;
   border: 1px solid #454647;
   opacity: 0.5;
+  margin-bottom: 10px;
 }
 
-button.active {
+.filterButtons.active {
   color: black;
   background: #ffef35;
   border: 1px solid #ffef35;
   opacity: 1;
 }
-button:hover {
+.filterButtons:hover {
   background: #ffef35;
   color: #545556;
   border: 1px solid #ffef35;

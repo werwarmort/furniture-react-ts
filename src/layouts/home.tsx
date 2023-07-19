@@ -4,6 +4,8 @@ import collection2 from "../images/content/collection-2.jpg";
 import collection3 from "../images/content/collection-3.jpg";
 import collection4 from "../images/content/collection-4.jpg";
 import collection5 from "../images/content/collection-5.jpg";
+import blogPicture1 from "../images/content/blog/1.jpg";
+import blogPicture2 from "../images/content/blog/2.jpg";
 import mesuringTape from "../images/measuring-tape.svg";
 import sofa from "../images/sofa.svg";
 import graphicTool from "../images/graphic-tool.svg";
@@ -252,6 +254,56 @@ const HomePage = () => {
             <Grid />
             {/* добавить картинок и въебать пагинацию */}
           </div>
+
+          <section className="blog-box">
+            <div className="container">
+              <h3 className="blog-box__title">
+                More inspiration ideas in our blog
+              </h3>
+              <div className="blog-box__items">
+                <div className="blog-box__item">
+                  <a href="" className="blog-box__img-link">
+                    <img src={blogPicture1} alt="" className="blog-box__img" />
+                  </a>
+                  <div className="blog-box__links">
+                    <span className="blog-box__date">March 12, 2020 </span>
+                    <a href="" className="blog-box__author">
+                      | by Ann Summers{" "}
+                    </a>
+                    <a href="" className="blog-box__theme">
+                      | Inrerior{" "}
+                    </a>
+                  </div>
+                  <a href="" className="blog-box__item-titleLink">
+                    <h4 className="blog-box__item-title">
+                      Listicle actually selvage activated charcoal for the
+                      drinking vinegar{" "}
+                    </h4>
+                  </a>
+                </div>
+
+                <div className="blog-box__item">
+                  <a href="" className="blog-box__img-link">
+                    <img src={blogPicture2} alt="" className="blog-box__img" />
+                  </a>
+                  <div className="blog-box__links">
+                    <span className="blog-box__date">September 28,2020 </span>
+                    <a href="" className="blog-box__author">
+                      | by Finnagan Morningstar{" "}
+                    </a>
+                    <a href="" className="blog-box__theme">
+                      | Dining room interior
+                    </a>
+                  </div>
+                  <a href="" className="blog-box__item-titleLink">
+                    <h4 className="blog-box__item-title">
+                      Red selfies edison bulb four dollar toast humblebrag
+                    </h4>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </section>
         </main>
 
         <footer className="footer">

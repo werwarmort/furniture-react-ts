@@ -9,11 +9,15 @@ export default function FilterBar({ handleClick, active }) {
   ];
 
   return (
-    <div className="gap-2" style={{ marginBottom: "1rem" }}>
+    <div className="gap-2 " style={{ marginBottom: "1rem" }}>
       {items.map((item, i) => (
         <button
           key={i}
-          className={active === item.toLowerCase() && "active"}
+          className={
+            active === item.toLowerCase()
+              ? "filterButtons active"
+              : "filterButtons"
+          }
           onClick={() => handleClick(item.toLowerCase())}
         >
           {item}

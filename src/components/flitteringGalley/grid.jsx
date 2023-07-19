@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import "./styles.scss";
+import "./stylesForFilter.scss";
 import FilterButtons from "./FiltterButtons";
 import data from "./data";
 
@@ -29,7 +29,11 @@ export default function Grid() {
 
   return (
     <div className="Grid">
-      <FilterButtons active={active} handleClick={handleCategoryClick} />
+      <FilterButtons
+        filterButtons
+        active={active}
+        handleClick={handleCategoryClick}
+      />
 
       <div className="grid">
         <AnimatePresence>
