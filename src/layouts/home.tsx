@@ -11,6 +11,7 @@ import sliderImg from "../images/content/Group 1.png";
 import RightSideMenu from "./menu";
 import React, { useState } from "react";
 import Carousel from "../components/carousel/carousel";
+import Grid from "../components/flitteringGalley/grid";
 
 const HomePage = () => {
   const [menuActive, setMenuActive] = useState(false);
@@ -247,7 +248,10 @@ const HomePage = () => {
             </div>
           </section>
 
-          <div className="gallery"></div>
+          <div className="gallery">
+            <Grid />
+            {/* добавить картинок и въебать пагинацию */}
+          </div>
         </main>
 
         <footer className="footer">
