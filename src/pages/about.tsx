@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
+import React, { useState } from "react";
 
-import playButton from "../images/play_button.svg";
+import ModalPopup from "../components/popupRofl/popupVideo";
 
 const AboutPage = () => {
   return (
@@ -59,13 +60,7 @@ const AboutPage = () => {
             </div>
           </div>
           <div className="about__popup">
-            <a className="about__popup-play" href="#">
-              <img
-                className="about__popup-imgBth"
-                src={playButton}
-                alt="play button"
-              />
-            </a>
+            <ModalPopup />
           </div>
         </div>
       </section>
