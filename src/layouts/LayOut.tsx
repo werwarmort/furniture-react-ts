@@ -1,7 +1,7 @@
 import menuSvg from "../images/icon_menu.svg";
 
 import React, { useState } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 
 import RightSideMenu from "../components/menu";
 
@@ -23,31 +23,31 @@ const Layout = () => {
               <nav className="menu">
                 <ul className="menu__list">
                   <li className="menu__list-item">
-                    <Link className="menu__list-link" to="/about">
+                    <NavLink className="menu__list-link" to="/about">
                       About
-                    </Link>
+                    </NavLink>
                   </li>
                   <li className="menu__list-item">
-                    <Link className="menu__list-link" to="/gallery">
+                    <NavLink className="menu__list-link" to="/gallery">
                       Gallery
-                    </Link>
+                    </NavLink>
                   </li>
                 </ul>
               </nav>
-              <Link className="logo" to="/">
+              <NavLink className="logo" to="/">
                 <img src={require("../images/logo.png")} alt="logo" />
-              </Link>
+              </NavLink>
               <nav className="menu">
                 <ul className="menu__list">
                   <li className="menu__list-item">
-                    <Link className="menu__list-link" to="/blog">
+                    <NavLink className="menu__list-link" to="/blog">
                       Blog
-                    </Link>
+                    </NavLink>
                   </li>
                   <li className="menu__list-item">
-                    <Link className="menu__list-link" to="/contact">
+                    <NavLink className="menu__list-link" to="/contact">
                       Contact
-                    </Link>
+                    </NavLink>
                   </li>
                 </ul>
               </nav>
