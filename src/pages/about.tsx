@@ -1,5 +1,5 @@
-const About = () => {
-  return console.log("mem");
+const AboutPage = () => {
+  return <h1>AboutPage</h1>;
 };
 
-export default About;
+export default AboutPage;

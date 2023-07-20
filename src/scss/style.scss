@@ -4,6 +4,13 @@
 @import "libs";
 @import "global";
 
+.wrapper {
+  overflow: hidden;
+  // display: flex;
+  // flex-direction: column;
+  // min-height: 100vh;
+}
+
 .header {
   &__inner {
     display: flex;
@@ -39,6 +46,7 @@
 }
 
 .footer {
+  margin-top: auto;
   &__content {
     background: #dfdfdf;
     padding: 60px 0 80px;
