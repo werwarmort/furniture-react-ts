@@ -1,6 +1,14 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 
+import collection1 from "../images/content/collection-1.jpg";
+import collection2 from "../images/content/collection-2.jpg";
+import collection3 from "../images/content/collection-3.jpg";
+import collection4 from "../images/content/collection-4.jpg";
+import collection5 from "../images/content/collection-5.jpg";
+import partner1 from "../images/content/partner/partner1.svg";
+import partner2 from "../images/content/partner/partner2.svg";
+
 import ModalPopup from "../components/popupRofl/popupVideo";
 import HorizontalChart from "../components/horizontalChart/horizontalChart";
 
@@ -87,6 +95,80 @@ const AboutPage = () => {
             </div>
           </div>
         </section>
+
+        <div className="partners">
+          <div className="container">
+            <div className="partners__items">
+              <img src={partner1} alt="" className="partners__item" />
+              <img src={partner2} alt="" className="partners__item" />
+              <img src={partner1} alt="" className="partners__item" />
+              <img src={partner2} alt="" className="partners__item" />
+              <img src={partner1} alt="" className="partners__item" />
+            </div>
+          </div>
+        </div>
+
+        <div className="collection about-collection">
+          <div className="collection__item">
+            <img className="collection__images" src={collection1} alt="" />
+            <div className="collection__info">
+              <div className="collection__info-title">
+                Truffaut literally trust
+              </div>
+              <div className="collection__info-text">
+                Living room furntiture | Chair
+              </div>
+            </div>
+          </div>
+
+          <div className="collection__item">
+            <img className="collection__images" src={collection2} alt="" />
+            <div className="collection__info">
+              <div className="collection__info-title">
+                Truffaut literally trust
+              </div>
+              <div className="collection__info-text">
+                Living room furntiture | Chair
+              </div>
+            </div>
+          </div>
+
+          <div className="collection__item">
+            <img className="collection__images" src={collection3} alt="" />
+            <div className="collection__info">
+              <div className="collection__info-title">
+                Truffaut literally trust
+              </div>
+              <div className="collection__info-text">
+                Living room furntiture | Chair
+              </div>
+            </div>
+          </div>
+
+          <div className="collection__item">
+            <img className="collection__images" src={collection4} alt="" />
+            <div className="collection__info">
+              <div className="collection__info-title">
+                Truffaut literally trust
+              </div>
+              <div className="collection__info-text">
+                Living room furntiture | Chair
+              </div>
+            </div>
+          </div>
+
+          <div className="collection__item">
+            <img className="collection__images" src={collection5} alt="" />
+            <div className="collection__info">
+              <div className="collection__info-title">
+                Truffaut literally trust
+              </div>
+              <div className="collection__info-text">
+                Living room furntiture | Chair
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
     </>
   );

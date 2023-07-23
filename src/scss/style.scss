@@ -615,7 +615,7 @@
     left: 0;
     right: 0;
     background-image: url(../images/content/inspiration-bg.png);
-    height: 414px;
+    height: 490px;
     z-index: -1;
     background-size: cover;
     // background-repeat: no-repeat;
@@ -657,6 +657,7 @@
   }
   &__item {
     position: relative;
+    padding-bottom: 30px;
     &::before {
       content: url(../images/content/Green_chair.png);
       position: absolute;
@@ -664,4 +665,16 @@
       top: -155px;
     }
   }
+}
+
+.partners {
+  padding: 16px 0 35px;
+  &__items {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.about-collection {
+  padding-bottom: 70px;
 }
