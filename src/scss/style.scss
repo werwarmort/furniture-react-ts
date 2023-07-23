@@ -44,6 +44,20 @@
     color: rgba(54, 56, 56, 0.9);
   }
 }
+.menu__list-link.active {
+  padding-bottom: 4px;
+  position: relative;
+  &::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    border-radius: 2px;
+    background-color: rgba($title, 0.7);
+  }
+}
 
 .footer {
   margin-top: auto;
@@ -260,21 +274,6 @@
 
 .main {
   margin-bottom: auto;
-}
-
-.active {
-  padding-bottom: 4px;
-  position: relative;
-  &::after {
-    position: absolute;
-    content: "";
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    border-radius: 2px;
-    background-color: rgba($title, 0.7);
-  }
 }
 
 .breadcrumbs {
@@ -603,4 +602,66 @@
 .about__popup-play {
   background: transparent;
   border: none;
+}
+
+.inspiration {
+  align-self: center;
+  padding-top: 10px;
+  position: relative;
+  &::after {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-image: url(../images/content/inspiration-bg.png);
+    height: 414px;
+    z-index: -1;
+    background-size: cover;
+    // background-repeat: no-repeat;
+  }
+  &__inner {
+    display: flex;
+    justify-content: center;
+  }
+  &__title {
+    font-size: 36px;
+    line-height: 60px;
+    color: $title;
+    @extend %title-font;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+    position: relative;
+
+    &::after {
+      position: absolute;
+      content: "";
+      bottom: 0;
+      left: 0;
+      background: #6d7278;
+      width: 200px;
+      height: 2px;
+    }
+  }
+  &__text {
+    width: 825px;
+    height: 80px;
+    color: #5a5a5a;
+    font-family: Open Sans;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 27px;
+  }
+  &__list {
+  }
+  &__item {
+    position: relative;
+    &::before {
+      content: url(../images/content/Green_chair.png);
+      position: absolute;
+      left: -471px;
+      top: -155px;
+    }
+  }
 }

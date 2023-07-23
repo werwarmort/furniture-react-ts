@@ -1,0 +1,39 @@
+.chart {
+  height: 400px;
+  &__item {
+    margin-top: 10px;
+    text-align: right;
+    font-family: Montserrat;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 23px;
+  }
+  &__totalLine {
+    margin-bottom: 70px;
+    max-width: 823px;
+    height: 3px;
+    border-radius: 4px;
+    background: #fff;
+    // background: red;
+    position: relative;
+  }
+  &__progress {
+    position: absolute;
+    // width: 700px;
+    height: 3px;
+    border-radius: 4px;
+    background: #363838;
+  }
+
+  &__text {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    &-title {
+    }
+    &-procent {
+      // font-size: 50px;
+    }
+  }
+}
