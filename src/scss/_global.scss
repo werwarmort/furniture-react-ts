@@ -32,3 +32,22 @@ body {
   margin: 0 auto;
   padding: 0 15px;
 }
+
+.info-email {
+  display: block;
+  font-weight: 600;
+  font-size: 14px;
+  color: $title;
+  padding-left: 30px;
+  position: relative;
+  margin-bottom: 22px;
+  &::before {
+    content: "";
+    background-image: url(../images/envelope.svg);
+    position: absolute;
+    top: 9px;
+    left: 0px;
+    width: 17px;
+    height: 13px;
+  }
+}

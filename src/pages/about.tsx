@@ -20,14 +20,12 @@ const AboutPage = () => {
           <div className="container">
             <ul className="breadcrumbs__list">
               <li className="breadcrumbs__item">
-                <Link className="breadcrumbs__link" to="home">
+                <Link className="breadcrumbs__link" to="/">
                   Home
                 </Link>
               </li>
               <li className="breadcrumbs__item">
-                <Link className="breadcrumbs__link" to="about">
-                  About
-                </Link>
+                <p className="breadcrumbs__link">About</p>
               </li>
             </ul>
           </div>

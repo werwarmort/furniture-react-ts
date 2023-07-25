@@ -73,10 +73,7 @@ const Layout = () => {
                     Keffiyeh poutine etsy, paleo cray put a bird on it
                     microdosing schlitz you probably occupy
                   </p>
-                  <a
-                    className="footer__info-email"
-                    href="mailto:stark.ts645@gmail.com"
-                  >
+                  <a className="info-email" href="mailto:stark.ts645@gmail.com">
                     stark.ts645@gmail.com
                   </a>
                   <form className="footer__form">

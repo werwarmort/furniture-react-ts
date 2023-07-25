@@ -83,25 +83,6 @@
     max-width: 475px;
   }
 
-  &__info-email {
-    display: block;
-    font-weight: 600;
-    font-size: 14px;
-    color: $title;
-    padding-left: 30px;
-    position: relative;
-    margin-bottom: 22px;
-    &::before {
-      content: "";
-      background-image: url(../images/envelope.svg);
-      position: absolute;
-      top: 9px;
-      left: 0px;
-      width: 17px;
-      height: 13px;
-    }
-  }
-
   &__form {
     display: flex;
   }
@@ -677,4 +658,130 @@
 
 .about-collection {
   padding-bottom: 70px;
+}
+
+.contact {
+  padding-bottom: 100px;
+  &__title {
+    color: $title;
+    @extend %title-font;
+    font-size: 36px;
+    line-height: 60px;
+    margin-bottom: 40px;
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      line-height: 0;
+      height: 2px;
+      width: 200px;
+      background-color: #6d7278;
+    }
+  }
+  .contact__social {
+    padding-left: 284px;
+    display: flex;
+    margin-bottom: 20px;
+  }
+  &__social-item + .contact__social-item {
+    padding-left: 40px;
+  }
+  &__text {
+    margin-bottom: 10px;
+  }
+  &__phone {
+    color: $default;
+  }
+  &__city {
+    margin-bottom: 16px;
+  }
+  &__contact-box {
+    padding-left: 284px;
+  }
+  &__form {
+    padding-left: 284px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  &__form-input {
+    border: 1px solid #dfdfdf;
+    border-radius: 20px;
+    padding: 6px 17px;
+    margin-bottom: 13px;
+    width: 48%;
+    &::placeholder {
+      color: #a1a1a1;
+      font-size: 16px;
+      line-height: 27px;
+      font-weight: 400;
+      font-family: "Open Sans", sans-serif;
+    }
+  }
+  &__form-area {
+    width: 100%;
+    border: 1px solid #dfdfdf;
+    border-radius: 24px;
+    padding: 14px 17px;
+    min-height: 125px;
+    resize: none;
+    margin-bottom: 20px;
+    &::placeholder {
+      color: #a1a1a1;
+      font-size: 16px;
+      line-height: 27px;
+      font-weight: 400;
+      font-family: "Open Sans", sans-serif;
+    }
+  }
+  &__form-btn {
+    border: none;
+    background-color: $title;
+    color: #fffff0;
+    font-weight: 600;
+    border-radius: 21px;
+    padding: 6px 60px;
+    cursor: pointer;
+  }
+}
+
+.slider__item {
+  margin: 0 auto;
+  padding-top: 100px;
+  display: flex !important;
+  justify-content: space-between !important;
+  max-width: 1920px !important;
+  user-select: none !important;
+}
+.slider__link {
+  border: none;
+  background-color: #fff;
+  max-width: 170px;
+  max-height: 170px;
+  position: relative;
+  padding: 10px;
+}
+
+.slider__title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  color: $title;
+  background-color: rgba(#fff, 0.7);
+  align-items: center;
+  transition: all 0.5s;
+  font-size: 16px;
+  line-height: 22px;
+  text-align: center;
+  padding: 64px 15px;
+  font-weight: 700;
+  opacity: 0;
+  cursor: pointer;
+
+  &:hover {
+    opacity: 1;
+  }
 }
