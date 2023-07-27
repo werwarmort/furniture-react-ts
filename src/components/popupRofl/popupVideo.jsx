@@ -7,7 +7,7 @@ import "../../scss/style.scss";
 
 import playButton from "../../images/play_button.svg";
 
-export default function ModalPopup() {
+export default function ModalPopup({ link }) {
   const [modal, setModal] = useState(false);
   const [videoLoading, setVideoLoading] = useState(true);
 
@@ -51,7 +51,7 @@ export default function ModalPopup() {
                     loading="lazy"
                     width="800"
                     height="500"
-                    src="https://www.youtube.com/embed/4UZrsTqkcW4"
+                    src={link}
                     title="YouTube video player"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

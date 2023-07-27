@@ -1,0 +1,42 @@
+.main-container {
+  // height: 700px;
+  // width: 1400px;
+  height: inherit;
+  width: inherit;
+  margin: 0 auto;
+  max-width: 1300px;
+  display: flex;
+  align-items: center;
+  user-select: none;
+  position: relative;
+}
+
+.window {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.all-pages-container {
+  height: 100%;
+  display: flex;
+  transition: translate;
+  transition-property: transform;
+  transition-duration: 400ms;
+  transition-timing-function: ease-in-out;
+}
+
+.arrow-left {
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 3%;
+  transform: translate(-50%, -50%);
+}
+.arrow-right {
+  z-index: 1;
+  position: absolute;
+  top: 50%;
+  left: 97%;
+  transform: translate(-50%, -50%);
+}

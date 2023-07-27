@@ -66,7 +66,7 @@ const AboutPage = () => {
               </div>
             </div>
             <div className="about__popup">
-              <ModalPopup />
+              <ModalPopup link={"https://www.youtube.com/embed/4UZrsTqkcW4"} />
             </div>
           </div>
         </section>

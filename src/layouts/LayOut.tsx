@@ -40,7 +40,7 @@ const Layout = () => {
               <nav className="menu">
                 <ul className="menu__list">
                   <li className="menu__list-item">
-                    <NavLink className="menu__list-link" to="/blog">
+                    <NavLink className="menu__list-link" to="blog">
                       Blog
                     </NavLink>
                   </li>

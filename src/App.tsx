@@ -9,6 +9,8 @@ import ContactPage from "./pages/contact";
 import GalleryPage from "./pages/gallery";
 import BlogPage from "./pages/blog";
 import AboutPage from "./pages/about";
+import BlogPost from "./pages/blogPost";
+
 import Layout from "./layouts/LayOut";
 
 import {
@@ -24,7 +26,9 @@ const router = createBrowserRouter(
       <Route index element={<HomePage />} />
       <Route path="about" element={<AboutPage />} />
       <Route path="gallery" element={<GalleryPage />} />
-      <Route path="blog" element={<BlogPage />} />
+      <Route path="blog" element={<BlogPage />}>
+        <Route path="blog/blogPost" element={<BlogPost />} />
+      </Route>
       <Route path="contact" element={<ContactPage />} />
     </Route>
   )
