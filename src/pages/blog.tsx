@@ -52,12 +52,12 @@ const BlogPage = () => {
                     Bedroom Furniture
                   </a>
                 </div>
-                <Link to="blogPost" className="blog__item-link">
-                  <h3 className="blog__item-title">
-                    Red selfies edison bulb four dollar toast humblebrag for the
-                    furniture
-                  </h3>
+                {/* <Link to="post" className="blog__item-link"> */}
+                <Link to="/post" className="blog__item-title">
+                  Red selfies edison bulb four dollar toast humblebrag for the
+                  furniture
                 </Link>
+                {/* </Link> */}
                 <p className="blog__item-text">
                   Everyday carry actually neutra authentic kogi shabby chic
                   migas small batch craft beer. Literally williamsburg tote bag
