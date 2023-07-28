@@ -5,6 +5,8 @@ import { Outlet, NavLink } from "react-router-dom";
 
 import RightSideMenu from "../components/menu";
 
+import bigLogo from "../images/BigLogo.svg";
+
 const Layout = () => {
   const [menuActive, setMenuActive] = useState(false);
 
@@ -35,7 +37,12 @@ const Layout = () => {
                 </ul>
               </nav>
               <NavLink className="logo" to="/">
-                <img src={require("../images/logo.png")} alt="logo" />
+                <img className="smallDeviceWidth" src={bigLogo} alt="" />
+                <img
+                  className="highDeviceWidth"
+                  src={require("../images/logo.png")}
+                  alt="logo"
+                />
               </NavLink>
               <nav className="menu">
                 <ul className="menu__list">
