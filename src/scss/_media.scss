@@ -1,4 +1,5 @@
 @media (max-width: 1280px) {
+  // Слайдер ========================
   .top__slider-info {
     display: flex;
     flex-direction: column;
@@ -16,18 +17,49 @@
     width: 566px;
     padding-right: 200px;
   }
-  //   .top__slider-img--wrapper {
-  //     width: 500px;
-  //     height: 656px;
-  //   }
-  //   .top__slider-img {
-  //     width: 400px;
-  //     height: 500px;
-  //     margin: 100px 40px 0 auto;
-  //   }
+  //  ========================
+}
+
+@media (max-width: 1060px) {
+  // Слайдер ========================
+  .top__slider-img {
+    width: 450px;
+    height: 500px;
+    margin: 100px 0 0 50px;
+    //  ========================
+  }
+}
+
+@media (max-width: 960px) {
+  // Слайдер ========================
+  .top__slider-img {
+    width: 350px;
+    height: 400px;
+    margin: 100px 0 0 70px;
+  }
+  .top__slider-info {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 30px;
+  }
+  .top__slider-title {
+    width: 566px;
+    min-height: 170px;
+    padding-right: 100px;
+    padding-top: 20px;
+    font-size: 50px !important;
+    line-height: 20px;
+  }
+  .top__slider-text {
+    width: 566px;
+    padding-right: 300px;
+  }
+  //  ========================
 }
 
 @media (max-width: 818px) {
+  // Меню ========================
   .menu {
     padding: 0 15px 0 0px;
   }
@@ -40,9 +72,37 @@
   .logo {
     margin: 0 25px 0 0;
   }
+  //  ========================
+
+  // Слайдер ========================
+  .top__slider-img {
+    width: 350px;
+    height: 400px;
+    margin: 100px 0 0 70px;
+  }
+  .top__slider-info {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    padding-bottom: 30px;
+  }
+  .top__slider-title {
+    width: 566px;
+    min-height: 170px;
+    padding-right: 100px;
+    padding-top: 20px;
+    font-size: 50px !important;
+    line-height: 20px;
+  }
+  .top__slider-text {
+    width: 566px;
+    padding-right: 300px;
+  }
+  //  ========================
 }
 
 @media (max-width: 565px) {
+  // Меню ========================
   .logo {
     position: relative;
     min-width: 300px;
@@ -56,10 +116,7 @@
     position: absolute;
     padding-left: 35px;
   }
-  .logo img {
-    // order: -1;
-    // margin: 0 auto;
-  }
+
   .menu__list {
     display: none;
   }
@@ -75,4 +132,5 @@
       transition: 0.2s;
     }
   }
+  //  ========================
 }
