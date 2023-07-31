@@ -15,48 +15,47 @@ import useRefDimensions from "../../hooks/useRefDimensions";
 import { IconContext } from "react-icons";
 
 const Carousel = ({ children }: { children: any }) => {
-  // const divRef = createRef();
-  // const dimensions = useRefDimensions(divRef);
-
-  // ========== тута мясо
-  // const divRef = useRef<HTMLDivElement>(null);
-
-  // const [width, setWidth] = useState(0);
-
-  // useLayoutEffect(() => {
-  //   if (divRef && divRef.current) {
-  //     setWidth(divRef.current.offsetWidth);
-  //     console.log(width);
-  //   }
-  // }, [divRef]);
-
-  // useLayoutEffect(() => {
-  //   if (divRef && divRef.current) {
-  //     console.log(`ширина элемента: `, divRef.current.offsetWidth);
-  //   }
-  // });
-
-  // ==========
-
-  // ============== Test 2
-
+  // отслеживаем изменение размеров карусели, привязка к .window
   const ref: any = useRef();
+
+  const [currentWidth, setCurrentWidth] = useState(1315);
+  const [pageWidth, setPageWidth] = useState(1315);
+  // console.log("current width is ", currentWidth);
 
   const observer = useRef(
     new ResizeObserver((entries) => {
       const { width } = entries[0].contentRect;
-      console.log("current width: ", width);
+      setCurrentWidth(width);
+      // console.log("current width: ", width);
     })
   );
 
   useEffect(() => {
     observer.current.observe(ref.current);
   }, [ref, observer]);
+  // =======================
 
-  // ================
+  // 1315 еслм экран > 960
+  // 1385 on 960 до 680
+  const PAGE_WIDTH: number = pageWidth;
 
-  // 1300
-  const PAGE_WIDTH: number = 1300;
+  useEffect(() => {
+    /* eslint-disable */
+    currentWidth < 960 && pageWidth != 1385
+      ? (setPageWidth(1385),
+        handleLeftArrowClick(),
+        handleLeftArrowClick(),
+        handleLeftArrowClick())
+      : // console.log("page width", pageWidth))
+        {};
+    /* eslint-disable */
+    currentWidth > 960 && pageWidth != 1315
+      ? (setPageWidth(1315),
+        handleLeftArrowClick(),
+        handleLeftArrowClick(),
+        handleLeftArrowClick())
+      : {};
+  });
 
   const [pages, setPages] = useState([]);
   const [offset, setOffset] = useState(0);
