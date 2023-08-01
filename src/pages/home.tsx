@@ -36,7 +36,9 @@ const HomePage = () => {
             <div className="top__slider-item item-2">
               <img className="top__slider-img" src={sliderImg} alt="images" />
               <div className="top__slider-info">
-                <h2 className="top__slider-title">Furniture collection</h2>
+                <h2 className="top__slider-title">
+                  Furniture collection probably
+                </h2>
                 <p className="top__slider-text">
                   Deep v you probably haven't heard of them banh mi synth
                   actually affogato. Aesthetic lyft ethical drinking vinegar
@@ -47,7 +49,9 @@ const HomePage = () => {
             <div className="top__slider-item item-3">
               <img className="top__slider-img" src={sliderImg} alt="images" />
               <div className="top__slider-info">
-                <h2 className="top__slider-title">Furniture collection</h2>
+                <h2 className="top__slider-title">
+                  Furniture collection probably
+                </h2>
                 <p className="top__slider-text">
                   Deep v you probably haven't heard of them banh mi synth
                   actually affogato. Aesthetic lyft ethical drinking vinegar
@@ -196,7 +200,7 @@ const HomePage = () => {
             <div className="blog-box__items">
               <div className="blog-box__item">
                 <a href="" className="blog-box__img-link">
-                  <img src={blogPicture1} alt="" className="blog-box__img" />
+                  <img className="blog-box__img" src={blogPicture1} alt="" />
                 </a>
                 <div className="blog-box__links">
                   <span className="blog-box__date">March 12, 2020 </span>
@@ -217,7 +221,7 @@ const HomePage = () => {
 
               <div className="blog-box__item">
                 <a href="" className="blog-box__img-link">
-                  <img src={blogPicture2} alt="" className="blog-box__img" />
+                  <img className="blog-box__img" src={blogPicture2} alt="" />
                 </a>
                 <div className="blog-box__links">
                   <span className="blog-box__date">September 28,2020 </span>

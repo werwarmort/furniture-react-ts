@@ -20,21 +20,21 @@ const Carousel = ({ children }: { children: any }) => {
 
   const [currentWidth, setCurrentWidth] = useState(0);
   const [pageWidth, setPageWidth] = useState(0);
-  console.log("page Width width is ", pageWidth);
+  // console.log("page Width width is ", pageWidth);
 
   const observer = useRef(
     new ResizeObserver((entries) => {
       const { width } = entries[0].contentRect;
       setCurrentWidth(width);
-      console.log("current width: ", width);
+      // console.log("current width: ", width);
     })
   );
 
   useEffect(() => {
     observer.current.observe(ref.current);
   }, [ref, observer]);
-  // =======================
 
+  // =======================
   // 1315 если > 945
   // 1370 on 945 до 847
   // 1371 on 847 до 647
@@ -49,8 +49,7 @@ const Carousel = ({ children }: { children: any }) => {
         handleLeftArrowClick(),
         handleLeftArrowClick(),
         handleLeftArrowClick())
-      : // console.log("page width", pageWidth))
-        {};
+      : {};
     /* eslint-disable */
     currentWidth <= 945 && currentWidth > 847 && pageWidth != 1370
       ? (setPageWidth(1370),
@@ -85,38 +84,7 @@ const Carousel = ({ children }: { children: any }) => {
         handleLeftArrowClick(),
         handleLeftArrowClick(),
         handleLeftArrowClick())
-      : // console.log("page width", pageWidth))
-        {};
-    // currentWidth < 960 && currentWidth > 760 && pageWidth != 1360
-    //   ? (setPageWidth(1360),
-    //     handleLeftArrowClick(),
-    //     handleLeftArrowClick(),
-    //     handleLeftArrowClick())
-    //   : // console.log("page width", pageWidth))
-    //     {};
-
-    // /* eslint-disable */
-    // currentWidth < 760 && currentWidth > 670 && pageWidth != 1361
-    //   ? (setPageWidth(1361),
-    //     handleLeftArrowClick(),
-    //     handleLeftArrowClick(),
-    //     handleLeftArrowClick())
-    //   : {};
-    // /* eslint-disable */
-    // currentWidth < 670 && currentWidth > 565 && pageWidth != 1420
-    //   ? (setPageWidth(1420),
-    //     handleLeftArrowClick(),
-    //     handleLeftArrowClick(),
-    //     handleLeftArrowClick())
-    //   : {};
-
-    /* eslint-disable */
-    // currentWidth > 565 && pageWidth != 222
-    //   ? (setPageWidth(222),
-    //     handleLeftArrowClick(),
-    //     handleLeftArrowClick(),
-    //     handleLeftArrowClick())
-    //   : {};
+      : {};
   }, [currentWidth]);
 
   const [pages, setPages] = useState([]);
@@ -158,8 +126,6 @@ const Carousel = ({ children }: { children: any }) => {
         className="arrow"
         onClick={handleLeftArrowClick}
       />
-      {/* ref={divRef as React.RefObject<HTMLDivElement>} */}
-      {/* ref={divRef as React.RefObject<HTMLDivElement>} */}
       <div className="window" ref={ref}>
         <div
           className="all-pages-container"
