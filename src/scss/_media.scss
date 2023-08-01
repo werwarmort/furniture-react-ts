@@ -35,7 +35,7 @@
   .top__slider-img {
     width: 350px;
     height: 400px;
-    margin: 100px 0 0 70px;
+    margin: 100px 0 0 50px;
   }
   .top__slider-info {
     display: flex;
@@ -78,7 +78,7 @@
   .top__slider-img {
     width: 350px;
     height: 400px;
-    margin: 100px 0 0 70px;
+    margin: 100px 0 0 40px;
   }
   .top__slider-info {
     display: flex;
@@ -101,7 +101,72 @@
   //  ========================
 }
 
+@media (max-width: 760px) {
+  // Слайдер ========================
+  .top__slider-img {
+    width: 250px;
+    height: 300px;
+    margin: 40px 0 0 100px;
+  }
+  .top__slider-info {
+    display: flex;
+    flex-direction: column;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    margin-top: 57px !important;
+  }
+  .top__slider-title {
+    width: 566px;
+    min-height: 141px;
+    padding-right: 280px;
+    padding-top: 0px;
+    font-size: 35px !important;
+    line-height: 41px !important;
+    &::after {
+      bottom: 5% !important;
+    }
+  }
+  .top__slider-text {
+    // display: none;
+    margin-top: 0px !important;
+    line-height: 20px;
+    width: 468px;
+    padding-right: 300px;
+    font-size: 16px;
+  }
+  //  ========================
+}
+
+@media (max-width: 670px) {
+  // Слайдер ========================
+  .top__slider-img {
+    margin: 40px 0 0 24px;
+  }
+  //  ========================
+}
+
 @media (max-width: 565px) {
+  // Слайдер ========================
+  .top__slider-img {
+    display: none; //
+  }
+  .top__slider-info {
+    // margin: 0 0 16px 29px !important; //
+  }
+  .top__slider-title {
+    min-height: 107px; //
+    padding-right: 124px; //
+
+    &::after {
+      bottom: 9% !important; //
+    }
+  }
+  .top__slider-text {
+    // display: none;
+
+    padding-right: 155px; //
+  }
+  //  ========================
   // Меню ========================
   .logo {
     position: relative;
