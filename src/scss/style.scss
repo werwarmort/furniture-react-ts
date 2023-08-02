@@ -261,8 +261,10 @@
 }
 
 .breadcrumbs {
+  overflow-x: scroll;
   background: rgba(#dfdfdf, 0.5);
   padding: 13px 14px;
+  height: 60px;
   &__list {
     display: flex;
   }
@@ -649,6 +651,9 @@
       left: -471px;
       top: -155px;
     }
+  }
+  &__content {
+    min-width: 825px;
   }
 }
 

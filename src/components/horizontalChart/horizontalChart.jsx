@@ -1,9 +1,31 @@
+import { useEffect, useRef, useState } from "react";
 import "./styles.scss";
 
 const HorizontalChart = () => {
   function findSize(progress) {
-    return Math.floor(823 * (progress / 100));
+    return Math.floor(currentWidth * (progress / 100));
   }
+
+  // отслеживаем изменение размеров карусели, привязка к .window
+  const ref = useRef();
+
+  const [currentWidth, setCurrentWidth] = useState(0);
+  // const [pageWidth, setPageWidth] = useState(0);
+  console.log("page Width width is ", currentWidth);
+
+  const observer = useRef(
+    new ResizeObserver((entries) => {
+      const { width } = entries[0].contentRect;
+      setCurrentWidth(width);
+      // console.log("current width: ", width);
+    })
+  );
+
+  useEffect(() => {
+    observer.current.observe(ref.current);
+  }, [ref, observer]);
+  // ==============
+
   const progressFirst = 80;
   const progressSecond = 70;
   const progressThird = 75;
@@ -42,7 +64,7 @@ const HorizontalChart = () => {
                 {styles[style].progress}%
               </div>
             </div>
-            <div className="chart__totalLine">
+            <div className="chart__totalLine" ref={ref}>
               <div
                 className="chart__progress"
                 style={{ minWidth: `${styles[style].size}px` }}

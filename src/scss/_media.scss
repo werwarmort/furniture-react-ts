@@ -1,4 +1,10 @@
 @media (max-width: 1366px) {
+  .inspiration__item::before {
+    display: none;
+  }
+}
+
+@media (max-width: 1366px) {
   // ====== furniture new collection
   .collection {
     grid-template-columns: repeat(3, 1fr);
@@ -76,6 +82,24 @@
 }
 
 @media (max-width: 860px) {
+  // == горизонтальный график
+  // .chart__totalLine {
+  //   margin-bottom: 70px;
+  //   width: 700px;
+  // }
+  // ===================
+
+  .about {
+    &__prev {
+      padding: 80px 0;
+    }
+    &__text {
+      padding-left: 0;
+    }
+    &__content {
+      padding: 40px 0;
+    }
+  }
   .footer {
     &__inner {
       flex-wrap: wrap;
@@ -367,6 +391,18 @@
 }
 
 @media (max-width: 395px) {
+  // ===== лого + меню
+  .logo {
+    margin: 0 auto;
+    min-width: 254px;
+    height: 100px;
+  }
+  .smallDeviceWidth {
+    padding-left: 0px !important;
+  }
+  // =================
+
+  // ====== breadcrums
   .top__slider-title {
     padding-right: 316px !important;
     padding-top: 0px;
