@@ -1,10 +1,17 @@
 @media (max-width: 1366px) {
+  .slider__item {
+    display: grid !important;
+    grid-template-columns: repeat(5, 1fr);
+    max-width: 1000px !important;
+    justify-content: center;
+  }
+  .slider__link {
+    margin: 0 auto;
+  }
+
   .inspiration__item::before {
     display: none;
   }
-}
-
-@media (max-width: 1366px) {
   // ====== furniture new collection
   .collection {
     grid-template-columns: repeat(3, 1fr);
@@ -38,6 +45,30 @@
 }
 
 @media (max-width: 1060px) {
+  .blog {
+    &__inner {
+      flex-wrap: wrap;
+    }
+
+    &__items {
+      max-width: 100%;
+    }
+    &__item {
+      max-width: 100%;
+    }
+    &__item-img {
+      width: 100% !important;
+    }
+  }
+  .article-slider__img {
+    width: 100%;
+  }
+  .aside {
+    width: 100%;
+    margin-left: 0;
+    order: -1;
+    margin-bottom: 50px;
+  }
   // Слайдер ========================
   .top__slider-img {
     width: 450px;
@@ -48,6 +79,9 @@
 }
 
 @media (max-width: 960px) {
+  .blog__inner {
+    flex-wrap: wrap;
+  }
   // ====== furniture new collection
   .collection {
     grid-template-columns: repeat(2, 1fr);
@@ -82,12 +116,9 @@
 }
 
 @media (max-width: 860px) {
-  // == горизонтальный график
-  // .chart__totalLine {
-  //   margin-bottom: 70px;
-  //   width: 700px;
-  // }
-  // ===================
+  .slider__item {
+    grid-template-columns: repeat(4, 1fr);
+  }
 
   .about {
     &__prev {
@@ -170,8 +201,22 @@
 }
 
 @media (max-width: 760px) {
-  .gallery {
-    min-height: 975px !important;
+  .map {
+    iframe {
+      height: 378px;
+    }
+  }
+  .contact .contact__social {
+    padding-left: 0;
+  }
+  .contact .contact__social .gallery {
+    padding-left: 0;
+  }
+  .contact__form {
+    padding-left: 0;
+  }
+  .contact__contact-box {
+    padding-left: 0;
   }
   // how it works (works-path)
   .works-path {
@@ -303,6 +348,70 @@
 }
 
 @media (max-width: 565px) {
+  .blog-one__comments-info {
+    margin-top: -50px;
+  }
+  .blog-one__comments-avatar {
+    width: 45px;
+    height: 45px;
+  }
+  .blog-one__comments-item {
+    flex-wrap: wrap;
+  }
+  .blog-one__comments-name,
+  .blog-one__comments-date {
+    margin-left: 56px;
+  }
+  .blog-one__form-input {
+    width: 100%;
+  }
+  .blog-one__links {
+    padding: 15px 0;
+  }
+  .blog-one__box-prev,
+  .blog-one__link-next span {
+    font-size: 0;
+  }
+  %title-font {
+    font-size: 28px !important;
+    line-height: 36px !important;
+  }
+  .blog-one__comments-name,
+  .blog-one__form-title {
+    font-size: 16px !important;
+    line-height: 27px !important;
+  }
+  .blog__category-title,
+  .recent-posts__title,
+  .blog__tags-title {
+    font-size: 16px !important;
+    line-height: 23px !important;
+  }
+  .slider__item {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .slider__link {
+    padding: 1px;
+  }
+  .blog {
+    &__blog {
+      font-size: 24px;
+      line-height: 38px;
+    }
+  }
+  // inspiration
+  .inspiration {
+    &__list {
+      margin-top: 10px;
+    }
+    &__text {
+      display: inline;
+      min-height: 80px;
+      margin-bottom: 10px;
+    }
+  }
+
+  // ==============
   .footer__form {
     // min-width: 350px;
   }
@@ -312,10 +421,7 @@
   .gallery {
     min-height: 675px !important;
   }
-  %title-font {
-    font-size: 28px !important;
-    line-height: 36px !important;
-  }
+
   // ====== furniture new collection
   .collection {
     grid-template-columns: repeat(1, 1fr);
@@ -379,6 +485,9 @@
 }
 
 @media (max-width: 470px) {
+  .partners__items {
+    grid-template-columns: repeat(3, 1fr);
+  }
   .top__slider-title {
     padding-right: 303px !important;
     padding-top: 0px;
@@ -391,6 +500,23 @@
 }
 
 @media (max-width: 395px) {
+  .blog-one__item blockquote {
+    padding: 0 20px !important;
+  }
+  .slider__item {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .inspiration__item {
+    margin-top: 25px;
+  }
+  .chart__item {
+    margin-top: -12px;
+  }
+  .chart {
+    &__text-title {
+      text-align: left;
+    }
+  }
   // ===== лого + меню
   .logo {
     margin: 0 auto;
@@ -435,5 +561,18 @@
       margin-left: 0;
       margin-top: 10px;
     }
+  }
+}
+
+@media (max-width: 395px) {
+  .inspiration__item {
+    display: inline-block;
+    margin-top: 35px !important;
+  }
+  .chart__item {
+    margin-top: -23px !important;
+  }
+  .partners__items {
+    grid-template-columns: repeat(2, 1fr);
   }
 }

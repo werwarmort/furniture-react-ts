@@ -52,7 +52,7 @@ const BlogPost = () => {
                   fund palo santo asymmetrical, franzen deep v marfa kogi
                   whatever swag pop-up seitan.
                 </p>
-                <blockquote>
+                <blockquote className="blog-one__blockquote">
                   “Simplicity is not the goal. It is the by-product of a good
                   idea and modest expectations”{" "}
                   <div className="blog__blockquote-author">Paul Rand</div>
@@ -90,12 +90,14 @@ const BlogPost = () => {
                 <div className="blog-one__box-prev">
                   <img src={arrowPrev} alt="ARRROW!" />
                   <a className="blog-one__link-prev" href="#">
-                    Cred selfies edison bulb four dollar toast humblebrag
+                    <span>
+                      Cred selfies edison bulb four dollar toast humblebrag
+                    </span>
                   </a>
                 </div>
                 <div className="blog-one__box-next">
                   <a className="blog-one__link-next" href="#">
-                    Semiotics fixie four dollar toast, next level
+                    <span>Semiotics fixie four dollar toast, next level</span>
                   </a>
                   <img src={arrowNext} alt="ARRROW!" />
                 </div>

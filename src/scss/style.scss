@@ -619,7 +619,7 @@
     padding-bottom: 16px;
     margin-bottom: 24px;
     position: relative;
-
+    max-width: 830px; // <====================== test
     &::after {
       position: absolute;
       content: "";
@@ -631,7 +631,7 @@
     }
   }
   &__text {
-    width: 825px;
+    // width: 825px;
     height: 80px;
     color: #5a5a5a;
     font-family: Open Sans;
@@ -639,12 +639,14 @@
     font-style: normal;
     font-weight: 400;
     line-height: 27px;
+    max-width: 830px; // <====================== test
   }
   &__list {
   }
   &__item {
     position: relative;
     padding-bottom: 30px;
+    max-width: 830px; // <====================== test
     &::before {
       content: url(../images/content/Green_chair.png);
       position: absolute;
@@ -653,7 +655,8 @@
     }
   }
   &__content {
-    min-width: 825px;
+    // min-width: 825px;
+    max-width: 830px; // <====================== test
   }
 }
 
@@ -847,7 +850,9 @@
     margin-bottom: 80px;
   }
   &__item-img {
-    max-width: 730px;
+    // min-width: 730px;
+
+    // background-size: 100%;
   }
   &__item-info {
     padding: 25px 0 10px;
@@ -1202,6 +1207,16 @@
 
 .smallDeviceWidth {
   display: none;
+}
+
+.map {
+  iframe {
+    height: 578px;
+  }
+}
+
+.contact__title::after {
+  left: 0.5%;
 }
 
 @import "media";

@@ -25,27 +25,6 @@ const AboutPage = () => {
                 </Link>
               </li>
               <li className="breadcrumbs__item">
-                <Link className="breadcrumbs__link" to="/">
-                  BlogPost
-                </Link>
-              </li>
-              <li className="breadcrumbs__item">
-                <Link className="breadcrumbs__link" to="/">
-                  Post
-                </Link>
-              </li>
-              <li className="breadcrumbs__item">
-                <Link className="breadcrumbs__link" to="/">
-                  Comment
-                </Link>
-              </li>
-              <li className="breadcrumbs__item">
-                <Link className="breadcrumbs__link" to="/">
-                  video
-                </Link>
-              </li>
-
-              <li className="breadcrumbs__item">
                 <p className="breadcrumbs__link">About</p>
               </li>
             </ul>

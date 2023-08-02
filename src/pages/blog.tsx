@@ -188,7 +188,7 @@ const BlogPage = () => {
                 <button className="aside__search-btn" type="submit"></button>
               </form>
               <div className="blog__category">
-                <h6 className="blog__category-title"></h6>
+                <h6 className="blog__category-title">Category</h6>
                 <ul className="blog__category-list">
                   <li className="blog__category-item">
                     <a className="blog__category-link" href="#">
