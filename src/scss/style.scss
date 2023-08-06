@@ -261,7 +261,8 @@
 }
 
 .breadcrumbs {
-  overflow-x: scroll;
+  overflow-y: hidden;
+  overflow-x: auto;
   background: rgba(#dfdfdf, 0.5);
   padding: 13px 14px;
   height: 60px;
