@@ -56,15 +56,14 @@ const generatePosts = (count) => {
         "img27",
       ]);
     }
-    // else if (previewType === "video") {
-    //   previewLink = faker.Lorem.sentence(1, 3);
-    // }
+
     let videoLink;
     if (previewType === "video") {
       videoLink = "https://www.youtube.com/embed/4UZrsTqkcW4";
     }
 
     const body = faker.Lorem.paragraphs(10); // Генерация случайного текста параграфами
+    const mainBody = faker.Lorem.paragraphs(25);
 
     if (previewType === "video") {
       posts.push({
@@ -85,6 +84,7 @@ const generatePosts = (count) => {
         title: title,
         preview: { type: previewType, link: previewLink },
         body: body,
+        mainBody: mainBody,
       });
     }
   }
