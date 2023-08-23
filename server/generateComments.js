@@ -1,24 +1,44 @@
 const fs = require("fs");
-// import * as faker from "Faker";
-const faker = require("../node_modules/Faker/Faker");
+const faker = require("faker");
 
-const generateComments = (count) => {
+const NUM_COMMENTS = 400;
+
+const generateComment = (postId) => {
+  return {
+    postId,
+    name: faker.Name.findName(),
+    email: faker.Internet.email(), // Добавили генерацию email
+    date: faker.Date.between(2015, 2023),
+    message: faker.Lorem.words(Math.floor(Math.random() * 35) + 5).join(" "), // Используем .join(' ') для объединения слов в текст
+    photo: faker.Image.avatar(),
+    replies: [],
+  };
+};
+
+const generateComments = () => {
   const comments = [];
 
-  for (let i = 1; i <= count; i++) {
-    const postId = Math.floor(Math.random() * 100) + 1; // Генерация случайного postId
-    comments.push({
-      postId: postId,
-      id: 0 + i,
-      name: faker.Name.findName(), // Генерация случайного имени
-      email: faker.Internet.email(),
-      body: faker.Lorem.sentence(3, 20),
-    });
+  for (let postId = 1; postId <= NUM_COMMENTS / 4; postId++) {
+    const numComments = Math.floor(Math.random() * 5) + 1;
+
+    for (let i = 0; i < numComments; i++) {
+      const comment = generateComment(postId);
+
+      const numReplies = Math.floor(Math.random() * 3);
+
+      for (let j = 0; j < numReplies; j++) {
+        comment.replies.push(generateComment(postId));
+      }
+
+      comments.push(comment);
+    }
   }
 
   return comments;
 };
 
-const comments = generateComments(100); // Замените 4 на нужное количество комментариев
+const commentsData = generateComments();
 
-fs.writeFileSync("comments.json", JSON.stringify(comments, null, 2));
+fs.writeFileSync("comments.json", JSON.stringify(commentsData, null, 2));
+
+console.log("Comments data generated successfully!");
