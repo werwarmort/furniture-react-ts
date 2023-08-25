@@ -38,7 +38,7 @@ const POSTS_PER_PAGE = 10;
 const PostList: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [comments, setComments] = useState<Comment[]>([]);
+  // const [comments, setComments] = useState<Comment[]>([]);
 
   useEffect(() => {
     window.scrollTo(0, 0); // Прокручивает в начало страницы при первой загрузке

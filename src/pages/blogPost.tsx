@@ -55,25 +55,22 @@ const BlogPost = () => {
   const post = location.state ? (location.state as { post: Post }).post : null;
   const [comments, setComments] = useState<Comment[]>([]);
 
-  useEffect(() => {
-    async function fetchComments() {
-      try {
-        if (post) {
-          // Проверяем, что post не null
-          const response = await axios.get<Comment[]>(
-            `http://localhost:3001/comments?postId=${post.postId}`
-          );
-          setComments(response.data);
-          // console.log("отправленный пост id ", post.postId);
-        }
-      } catch (error) {
-        console.error("Ошибка загрузки комментариев:", error);
+  const fetchComments = async () => {
+    try {
+      if (post) {
+        const response = await axios.get<Comment[]>(
+          `http://localhost:3001/comments?postId=${post.postId}`
+        );
+        setComments(response.data);
       }
+    } catch (error) {
+      console.error("Ошибка загрузки комментариев:", error);
     }
+  };
 
+  useEffect(() => {
     fetchComments();
   }, [post?.postId]);
-  // console.log("пришедшие комментарии: ", comments);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -102,6 +99,7 @@ const BlogPost = () => {
         "http://localhost:3001/addComment",
         formData
       );
+      fetchComments();
       console.log(formData);
       console.log(response.data.message); // Ответ от сервера
       reset(); // Если вы хотите сбросить форму после успешной отправки
