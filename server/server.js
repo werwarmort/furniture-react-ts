@@ -3,8 +3,18 @@ const fs = require("fs");
 const app = express();
 const port = 3001;
 
-app.use(express.static("src"));
+const cors = require("cors");
+const bodyParser = require("body-parser");
+app.use(bodyParser.json());
 
+app.use(express.static("src"));
+app.use(
+  cors({
+    origin: ["http://example.com", "http://localhost:3000"],
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    allowedHeaders: "Content-Type,Authorization",
+  })
+);
 // Настройка заголовков для CORS
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -32,7 +42,7 @@ app.get("/comments", (req, res) => {
       // console.log("полученные комменты на сервере: ", comments);
 
       const { postId } = req.query;
-      console.log("постID пришедший на сервер", postId);
+      // console.log("постID пришедший на сервер", postId);
 
       if (postId) {
         const filteredComments = comments.filter(
@@ -40,7 +50,7 @@ app.get("/comments", (req, res) => {
         );
 
         res.json(filteredComments);
-        console.log("отфильтрованные комменты: ", filteredComments);
+        // console.log("отфильтрованные комменты: ", filteredComments);
       } else {
         res.json(comments);
       }
@@ -50,27 +60,6 @@ app.get("/comments", (req, res) => {
     }
   });
 });
-
-// app.get("/comments", async (req, res) => {
-//   try {
-//     const data = fs.readFile("./server/comments.json", "utf8");
-//     const comments = JSON.parse(data);
-
-//     const { postId } = req.query;
-
-//     if (postId) {
-//       const filteredComments = comments.filter(
-//         (comment) => comment.postId === postId
-//       );
-//       res.json(filteredComments);
-//     } else {
-//       res.json(comments);
-//     }
-//   } catch (error) {
-//     console.error("Ошибка:", error);
-//     res.status(500).json({ error: "Произошла ошибка" });
-//   }
-// });
 
 app.get("/posts", (req, res) => {
   fs.readFile("./server/posts.json", "utf8", (err, data) => {
@@ -89,24 +78,41 @@ app.get("/posts", (req, res) => {
   });
 });
 
-// const comments = require('./comments.json'); // Загрузите данные комментариев
+app.post("/addComment", (req, res) => {
+  console.log("перед try", req.body);
+  try {
+    console.log(req.body);
 
-// app.get("/comments", (req, res) => {
-//   fs.readFile("./server/comments.json", "utf8", (err, data) => {
-//     if (err) {
-//       console.error("Ошибка чтения файла:", err);
-//       res.status(500).json({ error: "Произошла ошибка" });
-//       return;
-//     }
-//     try {
-//       const comments = JSON.parse(data);
-//       res.json(comments);
-//     } catch (parseError) {
-//       console.error("Ошибка парсинга JSON:", parseError);
-//       res.status(500).json({ error: "Ошибка при обработке данных" });
-//     }
-//   });
-// });
+    const { date, name, message, email, postId, commentId, photo, replies } =
+      req.body;
+
+    const newComment = {
+      message,
+      name,
+      email,
+      postId,
+      date,
+      commentId,
+      photo,
+      replies,
+    };
+
+    const commentsData = JSON.parse(
+      fs.readFileSync("./server/comments.json", "utf8")
+    );
+    commentsData.push(newComment);
+
+    fs.writeFileSync(
+      "./server/comments.json",
+      JSON.stringify(commentsData, null, 2)
+    );
+
+    res.status(200).json({ message: "Comment added successfully" });
+  } catch (error) {
+    console.error("Error adding comment:", error);
+    res.status(500).json({ error: "Error adding comment" });
+  }
+});
 
 app.listen(port, () => {
   console.log(`Сервер запущен на порту ${port}`);

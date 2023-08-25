@@ -27,7 +27,7 @@ const router = createBrowserRouter(
       <Route path="about" element={<AboutPage />} />
       <Route path="gallery" element={<GalleryPage />} />
       <Route path="blog" element={<BlogPage />} />
-      <Route path="post" element={<BlogPost />} />
+      <Route path="blog/:postId" element={<BlogPost />} />
       <Route path="contact" element={<ContactPage />} />
     </Route>
   )

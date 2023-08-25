@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ModalPopup from "./popupRofl/popupVideo";
 import images from "./BlogStuff.ts";
 import SmallCarousel from "../components/SmalCarousel-slider/SmallCarousel";
 import leftArrow from "../images/leftArrowLight.svg";
 import rightArrow from "../images/rightArrowLight.svg";
 
+import axios from "axios";
 interface Post {
   category: string;
   postId: number;
@@ -16,11 +17,32 @@ interface Post {
   body: string;
 }
 
+interface CustomLinkProps {
+  to: string;
+  post: Post;
+  children: React.ReactNode;
+}
+
+const CustomLink: React.FC<CustomLinkProps> = ({ to, post, children }) => {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate(to, { state: { post } });
+  };
+
+  return <div onClick={handleClick}>{children}</div>;
+};
+
 const POSTS_PER_PAGE = 10;
 
 const PostList: React.FC = () => {
   const [posts, setPosts] = useState<Post[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
+  const [comments, setComments] = useState<Comment[]>([]);
+
+  useEffect(() => {
+    window.scrollTo(0, 0); // Прокручивает в начало страницы при первой загрузке
+  }, [currentPage]);
 
   useEffect(() => {
     fetch("http://localhost:3001/posts", {
@@ -31,7 +53,6 @@ const PostList: React.FC = () => {
       .then((response) => response.json())
       .then((data) => {
         setPosts(data);
-        console.log(data);
       });
   }, []);
 
@@ -63,9 +84,9 @@ const PostList: React.FC = () => {
                 </a>
               </div>
 
-              <Link to={`/post/${post.postId}`} className="blog__item-title">
-                {post.title}
-              </Link>
+              <CustomLink to={`/blog/${post.postId}`} post={post}>
+                <h3 className="blog__item-title">{post.title}</h3>
+              </CustomLink>
 
               <p className="blog__item-text">{post.body}</p>
             </div>
@@ -103,7 +124,9 @@ const PostList: React.FC = () => {
                 </a>
               </div>
               <div className="blog__item-link">
-                <h3 className="blog__item-title">{post.title}</h3>
+                <CustomLink to={`/blog/${post.postId}`} post={post}>
+                  <h3 className="blog__item-title">{post.title}</h3>
+                </CustomLink>
               </div>
               <p className="blog__item-text">{post.body}</p>
             </div>
