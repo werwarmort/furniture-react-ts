@@ -14,14 +14,20 @@ import arrowNext from "../images/rightArrowLight.svg";
 import avatar from "../images/content/avatar.jpg";
 
 import images from "../components/BlogStuff.ts";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import axios from "axios";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 import moment from "moment";
-import { faker } from "@faker-js/faker";
+
+import { redirect } from "react-router-dom";
+
+import { useAuth } from "../hooks/useAuth.js";
+// import { useDispatch } from "react-redux";
+import { removeUser } from "../store/slices/userSlice.js";
+import { useAppDispatch } from "../hooks/redux-hooks.ts";
 
 interface Post {
   category: string;
@@ -54,6 +60,9 @@ const BlogPost = () => {
   const location = useLocation();
   const post = location.state ? (location.state as { post: Post }).post : null;
   const [comments, setComments] = useState<Comment[]>([]);
+  const { postId } = useParams<{ postId: string }>();
+  const { isAuth, email } = useAuth();
+  const dispatch = useAppDispatch();
 
   const fetchComments = async () => {
     try {
@@ -242,13 +251,37 @@ const BlogPost = () => {
                 <input className="blog-one__form-labelInput" type="checkbox" />{" "}
                 <p>Remember me</p>
               </label>
-              <button
-                className="blog-one__form-btn"
-                type="submit"
-                disabled={!isValid}
-              >
-                Submit
-              </button>
+
+              {isAuth ? (
+                <>
+                  <button
+                    className="blog-one__form-btn"
+                    type="submit"
+                    disabled={!isValid}
+                  >
+                    Submit
+                  </button>
+                  <p
+                    className="blog-one__logOut"
+                    onClick={() => dispatch(removeUser())}
+                  >
+                    Log out from {email}
+                  </p>
+                </>
+              ) : (
+                <>
+                  <p className="blog-one__authorization-paragraphs">
+                    <span className="blog-one__authorization-links">
+                      <Link to={`/login`}>Log in </Link>
+                    </span>
+                    or
+                    <span className="blog-one__authorization-links">
+                      <Link to={`/register`}> Sign in </Link>
+                    </span>
+                    to write a comment
+                  </p>
+                </>
+              )}
             </form>
           </div>
 

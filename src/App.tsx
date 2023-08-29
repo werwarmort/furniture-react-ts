@@ -10,7 +10,8 @@ import GalleryPage from "./pages/gallery";
 import BlogPage from "./pages/blog";
 import AboutPage from "./pages/about";
 import BlogPost from "./pages/blogPost";
-
+import LoginPage from "./pages/LoginPage.jsx";
+import RegisterPage from "./pages/registerPage";
 import Layout from "./layouts/LayOut";
 
 import {
@@ -20,6 +21,8 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 
+import "./firebase.js";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<Layout />}>
@@ -28,6 +31,8 @@ const router = createBrowserRouter(
       <Route path="gallery" element={<GalleryPage />} />
       <Route path="blog" element={<BlogPage />} />
       <Route path="blog/:postId" element={<BlogPost />} />
+      <Route path="login" element={<LoginPage />} />
+      <Route path="register" element={<RegisterPage />} />
       <Route path="contact" element={<ContactPage />} />
     </Route>
   )

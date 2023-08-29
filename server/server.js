@@ -1,13 +1,18 @@
 const express = require("express");
 const fs = require("fs");
-const app = express();
-const port = 3001;
-
 const cors = require("cors");
+const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
+const app = express();
 app.use(bodyParser.json());
-
 app.use(express.static("src"));
+const mongoose = require("mongoose");
+
+// Создали экземпляр приложения
+const port = 3001;
+DB_URL =
+  "mongodb+srv://root:1234@cluster0.gltfhah.mongodb.net/?retryWrites=true&w=majority";
+
 app.use(
   cors({
     origin: ["http://example.com", "http://localhost:3000"],
@@ -26,7 +31,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  res.send("Привет, это ваш сервер!");
+  res.send("сервер работает");
 });
 
 app.get("/comments", (req, res) => {

@@ -1229,4 +1229,18 @@
   left: 0.5%;
 }
 
+.blog-one__authorization-paragraphs {
+  margin-left: 20px;
+  display: inline-block;
+}
+.blog-one__authorization-links {
+  // color: #c00e0e;
+  text-decoration: underline;
+}
+.blog-one__logOut {
+  margin-left: 20px;
+  display: inline-block;
+  cursor: pointer;
+}
+
 @import "media";
