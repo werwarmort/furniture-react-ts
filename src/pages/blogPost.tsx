@@ -56,6 +56,10 @@ interface FormValues {
   email: string;
 }
 
+interface Replies {
+  reply: string;
+}
+
 const BlogPost = () => {
   const location = useLocation();
   const post = location.state ? (location.state as { post: Post }).post : null;
@@ -63,6 +67,19 @@ const BlogPost = () => {
   const { postId } = useParams<{ postId: string }>();
   const { isAuth, email } = useAuth();
   const dispatch = useAppDispatch();
+
+  const [selectedComment, setSelectedComment] = useState<Comment | null>(null);
+  const [reply, setReply] = useState<string>("");
+
+  const handleReplyClick = (comment: Comment) => {
+    if (selectedComment === comment) {
+      setSelectedComment(null);
+      setReply("");
+    } else {
+      setSelectedComment(comment);
+      setReply(`Reply to ${comment.name} ${comment.message.slice(0, 20)}`);
+    }
+  };
 
   const fetchComments = async () => {
     try {
@@ -188,12 +205,19 @@ const BlogPost = () => {
                     <p className="blog-one__comments-date">{comment.date}</p>
                     <p className="blog-one__comments-text">{comment.message}</p>
                   </div>
-                  <button className="blog-one__comments-reply">Reply</button>
+                  <button
+                    className="blog-one__comments-reply"
+                    onClick={() => handleReplyClick(comment)}
+                  >
+                    {selectedComment === comment ? "Cancel Reply" : "Reply"}
+                  </button>
                 </div>
               ))}
             </div>
             <form onSubmit={handleSubmit(onSubmit)} className="blog-one__from">
-              <h4 className="blog-one__form-title">Post a Coment</h4>
+              <h4 className="blog-one__form-title">
+                {reply || "Post a Comment"}
+              </h4>
               <div className="error">
                 {errors?.message && (
                   <p>{errors?.message?.message || "Error!"}</p>
@@ -216,7 +240,6 @@ const BlogPost = () => {
                 <p className="error">{errors?.name?.message || "Error!"}</p>
               )}
               <input
-                // value={newComment.name}
                 {...register("name", {
                   required: "никнейм обязателен!",
                   minLength: {
