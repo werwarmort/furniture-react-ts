@@ -64,12 +64,27 @@ const BlogPost = () => {
   const location = useLocation();
   const post = location.state ? (location.state as { post: Post }).post : null;
   const [comments, setComments] = useState<Comment[]>([]);
-  const { postId } = useParams<{ postId: string }>();
   const { isAuth, email } = useAuth();
   const dispatch = useAppDispatch();
+  const [newCommentReply, setNewCommentReply] = useState<Comment[]>([]);
 
   const [selectedComment, setSelectedComment] = useState<Comment | null>(null);
   const [reply, setReply] = useState<string>("");
+
+  const [authenticated, setAuthenticated] = useState<string | null>(
+    localStorage.getItem("authenticated")
+  );
+
+  const [authenticatedEmail, setAuthenticatedEmail] = useState<string | null>(
+    localStorage.getItem("email")
+  );
+
+  const HandleRemoveAuthenticationFromLocalStorage = () => {
+    localStorage.removeItem("authenticated");
+    setAuthenticated(null);
+    localStorage.removeItem("email");
+    setAuthenticatedEmail(null);
+  };
 
   const handleReplyClick = (comment: Comment) => {
     if (selectedComment === comment) {
@@ -77,7 +92,7 @@ const BlogPost = () => {
       setReply("");
     } else {
       setSelectedComment(comment);
-      setReply(`Reply to ${comment.name} ${comment.message.slice(0, 20)}`);
+      setReply(`Reply to ${comment.name} (${comment.message.slice(0, 30)}...)`);
     }
   };
 
@@ -116,7 +131,7 @@ const BlogPost = () => {
       commentId: new Date().getTime(),
       date: moment().format("MMMM D, YYYY"), // Получаем сегодняшнюю дату в нужном формате
       photo: "none",
-      replies: [],
+      replies: [selectedComment !== null ? selectedComment : null],
     };
     console.log(JSON.stringify(formData));
     try {
@@ -201,7 +216,14 @@ const BlogPost = () => {
                     alt="avatar"
                   />
                   <div className="blog-one__comments-info">
-                    <p className="blog-one__comments-name">{comment.name}</p>
+                    <p className="blog-one__comments-name">
+                      {comment.name}
+                      {comment.replies.length > 0 && comment.replies[0] !== null
+                        ? ` ответил на пост: "
+                          ${comment.replies[0].message.slice(0, 30)}..."`
+                        : ""}
+                    </p>
+
                     <p className="blog-one__comments-date">{comment.date}</p>
                     <p className="blog-one__comments-text">{comment.message}</p>
                   </div>
@@ -275,7 +297,7 @@ const BlogPost = () => {
                 <p>Remember me</p>
               </label>
 
-              {isAuth ? (
+              {authenticated ? (
                 <>
                   <button
                     className="blog-one__form-btn"
@@ -286,9 +308,12 @@ const BlogPost = () => {
                   </button>
                   <p
                     className="blog-one__logOut"
-                    onClick={() => dispatch(removeUser())}
+                    onClick={() => {
+                      dispatch(removeUser());
+                      HandleRemoveAuthenticationFromLocalStorage();
+                    }}
                   >
-                    Log out from {email}
+                    Log out from {authenticatedEmail}
                   </p>
                 </>
               ) : (

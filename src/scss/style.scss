@@ -1134,6 +1134,9 @@
     color: #707070;
     cursor: pointer;
   }
+  &__comments-replyMessage {
+    display: inline-block;
+  }
   &__comments-name {
     color: $title;
     @extend %title-font;

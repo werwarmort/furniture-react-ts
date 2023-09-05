@@ -119,6 +119,56 @@ app.post("/addComment", (req, res) => {
   }
 });
 
+app.post("/addReply", (req, res) => {
+  try {
+    console.log(req.body);
+
+    const {
+      date,
+      name,
+      message,
+      email,
+      postId,
+      commentId,
+      photo,
+      replies,
+      repliedTo,
+    } = req.body;
+
+    const newReply = {
+      message,
+      name,
+      email,
+      postId,
+      date,
+      commentId,
+      photo,
+      replies,
+      repliedTo,
+    };
+
+    const commentsData = JSON.parse(
+      fs.readFileSync("./server/comments.json", "utf8")
+    );
+    // commentsData.push(newComment);
+    commentsData.forEach((comment) =>
+      comment.postId === repliedTo
+        ? newReply.push(comment.name, comment.message, comment.data)
+        : false
+    );
+
+    fs.writeFileSync(
+      "./server/comments.json",
+      JSON.stringify(commentsData, null, 2)
+    );
+
+    res.status(200).json({ message: "Comment added successfully" });
+  } catch (error) {
+    console.error("Error adding comment:", error);
+    res.status(500).json({ error: "Error adding comment" });
+  }
+});
+
 app.listen(port, () => {
   console.log(`Сервер запущен на порту ${port}`);
 });

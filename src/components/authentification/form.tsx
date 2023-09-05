@@ -9,6 +9,11 @@ const Form: FC<FormProps> = ({ title, handleClick }) => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
 
+  const saveAuthenticationToLocalStorage = () => {
+    localStorage.setItem("authenticated", "true");
+    localStorage.setItem("email", `${email}`);
+  };
+
   return (
     <div>
       <input
@@ -23,7 +28,14 @@ const Form: FC<FormProps> = ({ title, handleClick }) => {
         onChange={(e) => setPass(e.target.value)}
         placeholder="password"
       />
-      <button onClick={() => handleClick(email, pass)}>{title}</button>
+      <button
+        onClick={() => {
+          handleClick(email, pass);
+          saveAuthenticationToLocalStorage();
+        }}
+      >
+        {title}
+      </button>
     </div>
   );
 };
