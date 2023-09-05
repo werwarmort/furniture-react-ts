@@ -6,21 +6,66 @@ import instagram from "../images/instagram.svg";
 import pinterest from "../images/Pinterest.svg";
 import youtube from "../images/youtube.svg";
 import whatsapp from "../images/whatsapp.svg";
-import SimpleSlider from "../components/gallerySlider/gallerySlider";
-import blogImg1 from "../images/content/blog/bg-img1.jpg";
-import blogImg2 from "../images/content/blog/bg-img2.jpg";
-import blogImg3 from "../images/content/blog/bg-img3.jpg";
 
-import leftArrow from "../images/arrow-left.svg";
-import rightArrow from "../images/arrow-right.svg";
+import { Link, useNavigate } from "react-router-dom";
+import PostList, { CustomLinkProps } from "../components/postList";
+import { useEffect, useState } from "react";
+export interface Post {
+  category: string;
+  postId: number;
+  date: string;
+  author: string;
+  title: string;
+  preview: { type: string; link: string; videoLink?: string };
+  body: string;
+}
 
-import ModalPopup from "../components/popupRofl/popupVideo";
-import SmallCarousel from "../components/SmalCarousel-slider/SmallCarousel";
+const CustomLink: React.FC<CustomLinkProps> = ({ to, post, children }) => {
+  const navigate = useNavigate();
 
-import { Link } from "react-router-dom";
-import PostList from "../components/postItem";
+  const handleClick = () => {
+    navigate(to, { state: { post } });
+  };
+
+  return <div onClick={handleClick}>{children}</div>;
+};
 
 const BlogPage = () => {
+  const [posts, setPosts] = useState<Post[]>([]);
+  useEffect(() => {
+    fetch("http://localhost:3001/posts", {
+      headers: {
+        Accept: "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setPosts(data);
+      });
+  }, []);
+
+  const renderRecentPosts = () => {
+    const sortedPosts = posts.sort(
+      (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+    );
+
+    const recentPosts = sortedPosts.slice(0, 3);
+
+    return recentPosts.map((post, index) => (
+      <li key={index} className="recent-posts__item">
+        <CustomLink to={`/blog/${post.postId}`} post={post}>
+          <span className="recent-posts__item-title">{post.title}</span>
+        </CustomLink>
+        <span className="recent-posts__date">
+          {post.date} | by {post.author}
+        </span>
+        <a href="#" className="recent-posts__author">
+          | by {post.author}
+        </a>
+      </li>
+    ));
+  };
+
   return (
     <>
       <div className="breadcrumbs">
@@ -40,7 +85,7 @@ const BlogPage = () => {
       <section className="blog">
         <div className="container">
           <div className="blog__inner">
-            <PostList />
+            <PostList fetchedPosts={posts} />
 
             <aside className="aside">
               <form className="aside__search">
@@ -87,7 +132,8 @@ const BlogPage = () => {
               <div className="recent-posts">
                 <h6 className="recent-posts__title">Recent Posts</h6>
                 <ul className="recent-posts__list">
-                  <li className="recent-posts__item">
+                  {renderRecentPosts()}
+                  {/* <li className="recent-posts__item">
                     <a href="#" className="recent-posts__item-title">
                       Cred selfies edison bulb four dollar toast humblebrag
                     </a>
@@ -118,7 +164,7 @@ const BlogPage = () => {
                     <a href="#" className="recent-posts__author">
                       | by Ann Summers
                     </a>
-                  </li>
+                  </li> */}
                 </ul>
               </div>
               <div className="blog__tags">

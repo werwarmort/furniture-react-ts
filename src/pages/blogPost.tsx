@@ -6,26 +6,19 @@ import instagram from "../images/instagram.svg";
 import pinterest from "../images/Pinterest.svg";
 import youtube from "../images/youtube.svg";
 import whatsapp from "../images/whatsapp.svg";
-import SimpleSlider from "../components/gallerySlider/gallerySlider";
-import blogImg1 from "../images/content/blog/bg-img1.jpg";
 
 import arrowPrev from "../images/leftArrowLight.svg";
 import arrowNext from "../images/rightArrowLight.svg";
 import avatar from "../images/content/avatar.jpg";
 
 import images from "../components/BlogStuff.ts";
-import { Link, useLocation, useParams } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import axios from "axios";
 import { useForm, SubmitHandler } from "react-hook-form";
 
 import moment from "moment";
-
-import { redirect } from "react-router-dom";
-
-import { useAuth } from "../hooks/useAuth.js";
-// import { useDispatch } from "react-redux";
 import { removeUser } from "../store/slices/userSlice.js";
 import { useAppDispatch } from "../hooks/redux-hooks.ts";
 
@@ -64,17 +57,12 @@ const BlogPost = () => {
   const location = useLocation();
   const post = location.state ? (location.state as { post: Post }).post : null;
   const [comments, setComments] = useState<Comment[]>([]);
-  const { isAuth, email } = useAuth();
   const dispatch = useAppDispatch();
-  const [newCommentReply, setNewCommentReply] = useState<Comment[]>([]);
-
   const [selectedComment, setSelectedComment] = useState<Comment | null>(null);
   const [reply, setReply] = useState<string>("");
-
   const [authenticated, setAuthenticated] = useState<string | null>(
     localStorage.getItem("authenticated")
   );
-
   const [authenticatedEmail, setAuthenticatedEmail] = useState<string | null>(
     localStorage.getItem("email")
   );

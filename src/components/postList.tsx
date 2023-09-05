@@ -1,26 +1,20 @@
 import React, { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-import ModalPopup from "./popupRofl/popupVideo";
+import { useNavigate } from "react-router-dom";
+import ModalPopup from "./popupRofl/popupVideo.jsx";
 import images from "./BlogStuff.ts";
-import SmallCarousel from "../components/SmalCarousel-slider/SmallCarousel";
+import SmallCarousel from "./SmalCarousel-slider/SmallCarousel.tsx";
 import leftArrow from "../images/leftArrowLight.svg";
-import rightArrow from "../images/rightArrowLight.svg";
 
-import axios from "axios";
-interface Post {
-  category: string;
-  postId: number;
-  date: string;
-  author: string;
-  title: string;
-  preview: { type: string; link: string; videoLink?: string };
-  body: string;
-}
+import { Post } from "../pages/blog.tsx";
 
-interface CustomLinkProps {
+export interface CustomLinkProps {
   to: string;
   post: Post;
   children: React.ReactNode;
+}
+
+interface PostListProps {
+  fetchedPosts: Post[];
 }
 
 const CustomLink: React.FC<CustomLinkProps> = ({ to, post, children }) => {
@@ -35,26 +29,13 @@ const CustomLink: React.FC<CustomLinkProps> = ({ to, post, children }) => {
 
 const POSTS_PER_PAGE = 10;
 
-const PostList: React.FC = () => {
-  const [posts, setPosts] = useState<Post[]>([]);
+const PostList: React.FC<PostListProps> = ({ fetchedPosts }) => {
+  const posts = fetchedPosts;
   const [currentPage, setCurrentPage] = useState(1);
-  // const [comments, setComments] = useState<Comment[]>([]);
 
   useEffect(() => {
-    window.scrollTo(0, 0); // Прокручивает в начало страницы при первой загрузке
+    window.scrollTo(0, 0);
   }, [currentPage]);
-
-  useEffect(() => {
-    fetch("http://localhost:3001/posts", {
-      headers: {
-        Accept: "application/json",
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        setPosts(data);
-      });
-  }, []);
 
   // Фильтрация постов на текущей странице
   const postsToShow = posts.slice(
@@ -77,7 +58,7 @@ const PostList: React.FC = () => {
                 <span className="blog__item-date">{post.date}</span> |{" "}
                 <a className="blog__item-author" href="">
                   {post.author}
-                </a>{" "}
+                </a>
                 |
                 <a className="blog__item-theme" href="">
                   {post.category}
