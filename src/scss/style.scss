@@ -819,8 +819,12 @@
     line-height: 23px;
   }
   &__category-item,
-  &__tags-title {
+  &__tags-title,
+  &__category-item--active {
     margin-bottom: 12px;
+  }
+  &__category-item--active {
+    color: #3055ab;
   }
   &__category-link {
     color: inherit;

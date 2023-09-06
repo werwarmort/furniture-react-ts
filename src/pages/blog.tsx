@@ -10,6 +10,7 @@ import whatsapp from "../images/whatsapp.svg";
 import { Link, useNavigate } from "react-router-dom";
 import PostList, { CustomLinkProps } from "../components/postList";
 import { useEffect, useState } from "react";
+import BlogCategory from "../components/blogCategory";
 export interface Post {
   category: string;
   postId: number;
@@ -101,71 +102,11 @@ const BlogPage = () => {
               </form>
               <div className="blog__category">
                 <h6 className="blog__category-title">Category</h6>
-                <ul className="blog__category-list">
-                  <li className="blog__category-item">
-                    <a className="blog__category-link" href="#">
-                      Dining room (1)
-                    </a>
-                  </li>
-                  <li className="blog__category-item">
-                    <a className="blog__category-link" href="#">
-                      Office furniture (12)
-                    </a>
-                  </li>
-                  <li className="blog__category-item">
-                    <a className="blog__category-link" href="#">
-                      Simple interiror design (2)
-                    </a>
-                  </li>
-                  <li className="blog__category-item">
-                    <a className="blog__category-link" href="#">
-                      Design (4)
-                    </a>
-                  </li>
-                  <li className="blog__category-item">
-                    <a className="blog__category-link" href="#">
-                      Bedroom Furniture (1)
-                    </a>
-                  </li>
-                </ul>
+                <BlogCategory posts={posts} />
               </div>
               <div className="recent-posts">
                 <h6 className="recent-posts__title">Recent Posts</h6>
-                <ul className="recent-posts__list">
-                  {renderRecentPosts()}
-                  {/* <li className="recent-posts__item">
-                    <a href="#" className="recent-posts__item-title">
-                      Cred selfies edison bulb four dollar toast humblebrag
-                    </a>
-                    <span className="recent-posts__date">
-                      August 10, 2020 | by Ann Summers
-                    </span>
-                    <a href="#" className="recent-posts__author">
-                      | by Ann Summers
-                    </a>
-                  </li>
-                  <li className="recent-posts__item">
-                    <a href="#" className="recent-posts__item-title">
-                      Semiotics fixie four dollar toast, next level woke
-                      scenester direct trade photo booth
-                    </a>
-                    <span className="recent-posts__date">
-                      September 30 ,2020{" "}
-                    </span>
-                    <a href="#" className="recent-posts__author">
-                      | by Ann Summers
-                    </a>
-                  </li>
-                  <li className="recent-posts__item">
-                    <a href="#" className="recent-posts__item-title">
-                      Cred selfies edison bulb four dollar toast humblebrag
-                    </a>
-                    <span className="recent-posts__date">May 2, 2020 </span>
-                    <a href="#" className="recent-posts__author">
-                      | by Ann Summers
-                    </a>
-                  </li> */}
-                </ul>
+                <ul className="recent-posts__list">{renderRecentPosts()}</ul>
               </div>
               <div className="blog__tags">
                 <h6 className="blog__tags-title">Tags</h6>
