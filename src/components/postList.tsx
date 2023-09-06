@@ -38,9 +38,10 @@ const PostList: React.FC<PostListProps> = ({ fetchedPosts, category }) => {
     window.scrollTo(0, 0);
   }, [currentPage]);
 
-  const filteredPosts = category
-    ? fetchedPosts.filter((post) => post.category === category)
-    : fetchedPosts;
+  const filteredPosts =
+    category === ""
+      ? fetchedPosts
+      : fetchedPosts.filter((post) => post.category === category);
 
   // Фильтрация постов на текущей странице
   const postsToShow = filteredPosts.slice(

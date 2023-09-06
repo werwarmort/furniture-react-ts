@@ -27,8 +27,15 @@ const BlogCategory: React.FC<BlogCategoryProps> = ({
     setCategoryCounts(counts);
   }, [posts]);
 
+  const [activeCategory, setActiveCategory] = useState<string | null>(null); // Добавляем состояние для активной категории
+
   const handleCategoryClick = (category: string) => {
     if (categoryClick) {
+      if (activeCategory === category) {
+        setActiveCategory(null); // Если категория уже активна, снимаем активность
+      } else {
+        setActiveCategory(category); // Иначе делаем категорию активной
+      }
       categoryClick(category);
     }
   };
@@ -38,7 +45,9 @@ const BlogCategory: React.FC<BlogCategoryProps> = ({
       {Object.entries(categoryCounts).map(([category, count]) => (
         <li className="blog__category-item" key={category}>
           <p
-            className="blog__category-link"
+            className={`blog__category-link${
+              activeCategory === category ? "--active" : ""
+            }`}
             onClick={() => handleCategoryClick(category)}
           >
             {category} ({count})
