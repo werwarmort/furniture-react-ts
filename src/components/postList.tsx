@@ -38,6 +38,10 @@ const PostList: React.FC<PostListProps> = ({ fetchedPosts, category }) => {
     window.scrollTo(0, 0);
   }, [currentPage]);
 
+  useEffect(() => {
+    setCurrentPage(1); // Установка текущей страницы в 1 при изменении категории
+  }, [category]);
+
   const filteredPosts =
     category === ""
       ? fetchedPosts
@@ -157,7 +161,7 @@ const PostList: React.FC<PostListProps> = ({ fetchedPosts, category }) => {
         <ul className="pagination__list">
           <li className="pagination__list-item">
             {Array.from({
-              length: Math.ceil(posts.length / POSTS_PER_PAGE),
+              length: Math.ceil(filteredPosts.length / POSTS_PER_PAGE),
             }).map((_, index) => (
               <button
                 key={index}
