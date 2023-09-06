@@ -32,6 +32,7 @@ const CustomLink: React.FC<CustomLinkProps> = ({ to, post, children }) => {
 };
 
 const BlogPage = () => {
+  // получаем и записываем посты
   const [posts, setPosts] = useState<Post[]>([]);
   useEffect(() => {
     fetch("http://localhost:3001/posts", {
@@ -49,9 +50,7 @@ const BlogPage = () => {
     const sortedPosts = posts.sort(
       (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
     );
-
     const recentPosts = sortedPosts.slice(0, 3);
-
     return recentPosts.map((post, index) => (
       <li key={index} className="recent-posts__item">
         <CustomLink to={`/blog/${post.postId}`} post={post}>
@@ -66,6 +65,14 @@ const BlogPage = () => {
       </li>
     ));
   };
+
+  const [category, setCategory] = useState<string>("");
+  const handleCategoryClick = (selectedCategory: string) => {
+    category === selectedCategory
+      ? setCategory("")
+      : setCategory(selectedCategory);
+  };
+  // console.log("текущая категория: ", category);
 
   return (
     <>
@@ -86,7 +93,7 @@ const BlogPage = () => {
       <section className="blog">
         <div className="container">
           <div className="blog__inner">
-            <PostList fetchedPosts={posts} />
+            <PostList fetchedPosts={posts} category={category} />
 
             <aside className="aside">
               <form className="aside__search">
@@ -102,7 +109,10 @@ const BlogPage = () => {
               </form>
               <div className="blog__category">
                 <h6 className="blog__category-title">Category</h6>
-                <BlogCategory posts={posts} />
+                <BlogCategory
+                  posts={posts}
+                  categoryClick={handleCategoryClick}
+                />
               </div>
               <div className="recent-posts">
                 <h6 className="recent-posts__title">Recent Posts</h6>

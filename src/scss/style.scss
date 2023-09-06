@@ -821,6 +821,7 @@
   &__category-item,
   &__tags-title,
   &__category-item--active {
+    cursor: pointer;
     margin-bottom: 12px;
   }
   &__category-item--active {

@@ -3,13 +3,16 @@ import { Post } from "../pages/blog";
 
 interface BlogCategoryProps {
   posts: Post[];
+  categoryClick?: (category: string) => void;
 }
 
-const BlogCategory: React.FC<BlogCategoryProps> = ({ posts }) => {
+const BlogCategory: React.FC<BlogCategoryProps> = ({
+  posts,
+  categoryClick,
+}) => {
   const [categoryCounts, setCategoryCounts] = useState<{
     [key: string]: number;
   }>({});
-
   useEffect(() => {
     // Используем объект для подсчета количества категорий
     const counts: { [key: string]: number } = {};
@@ -24,11 +27,20 @@ const BlogCategory: React.FC<BlogCategoryProps> = ({ posts }) => {
     setCategoryCounts(counts);
   }, [posts]);
 
+  const handleCategoryClick = (category: string) => {
+    if (categoryClick) {
+      categoryClick(category);
+    }
+  };
+
   return (
     <ul className="blog__category-list">
       {Object.entries(categoryCounts).map(([category, count]) => (
         <li className="blog__category-item" key={category}>
-          <p className="blog__category-link">
+          <p
+            className="blog__category-link"
+            onClick={() => handleCategoryClick(category)}
+          >
             {category} ({count})
           </p>
         </li>

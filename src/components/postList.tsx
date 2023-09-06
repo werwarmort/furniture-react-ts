@@ -15,6 +15,7 @@ export interface CustomLinkProps {
 
 interface PostListProps {
   fetchedPosts: Post[];
+  category?: string;
 }
 
 const CustomLink: React.FC<CustomLinkProps> = ({ to, post, children }) => {
@@ -29,7 +30,7 @@ const CustomLink: React.FC<CustomLinkProps> = ({ to, post, children }) => {
 
 const POSTS_PER_PAGE = 10;
 
-const PostList: React.FC<PostListProps> = ({ fetchedPosts }) => {
+const PostList: React.FC<PostListProps> = ({ fetchedPosts, category }) => {
   const posts = fetchedPosts;
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -37,8 +38,12 @@ const PostList: React.FC<PostListProps> = ({ fetchedPosts }) => {
     window.scrollTo(0, 0);
   }, [currentPage]);
 
+  const filteredPosts = category
+    ? fetchedPosts.filter((post) => post.category === category)
+    : fetchedPosts;
+
   // Фильтрация постов на текущей странице
-  const postsToShow = posts.slice(
+  const postsToShow = filteredPosts.slice(
     (currentPage - 1) * POSTS_PER_PAGE,
     currentPage * POSTS_PER_PAGE
   );
