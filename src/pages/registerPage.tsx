@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom";
 import SignUp from "../components/authentification/SignUp";
 
 const RegisterPage = () => {

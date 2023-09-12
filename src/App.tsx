@@ -1,5 +1,3 @@
-import React from "react";
-
 import "./scss/App.scss";
 import "./scss/style.scss";
 import "./scss/index.scss";
@@ -10,7 +8,7 @@ import GalleryPage from "./pages/gallery";
 import BlogPage from "./pages/blog";
 import AboutPage from "./pages/about";
 import BlogPost from "./pages/blogPost";
-import LoginPage from "./pages/LoginPage.jsx";
+import LoginPage from "./pages/LoginPage.tsx";
 import RegisterPage from "./pages/registerPage";
 import Layout from "./layouts/LayOut";
 

@@ -8,9 +8,12 @@ import youtube from "../images/youtube.svg";
 import whatsapp from "../images/whatsapp.svg";
 
 import { Link, useNavigate } from "react-router-dom";
-import PostList, { CustomLinkProps } from "../components/postList";
+import PostList from "../components/blogItems/postList";
 import { useEffect, useState } from "react";
-import BlogCategory from "../components/blogCategory";
+import BlogCategory from "../components/blogItems/blogCategory";
+import { CustomLinkProps } from "../components/customLink";
+import SocialLinks from "../components/blogItems/socialLInks";
+import BlogTags from "../components/blogItems/blogTags";
 export interface Post {
   category: string;
   postId: number;
@@ -32,7 +35,6 @@ const CustomLink: React.FC<CustomLinkProps> = ({ to, post, children }) => {
 };
 
 const BlogPage = () => {
-  // получаем и записываем посты
   const [posts, setPosts] = useState<Post[]>([]);
   useEffect(() => {
     fetch("http://localhost:3001/posts", {
@@ -53,7 +55,7 @@ const BlogPage = () => {
     const recentPosts = sortedPosts.slice(0, 3);
     return recentPosts.map((post, index) => (
       <li key={index} className="recent-posts__item">
-        <CustomLink to={`/blog/${post.postId}`} post={post}>
+        <CustomLink to={`/blog/${post.postId}`} post={post} posts={posts}>
           <span className="recent-posts__item-title">{post.title}</span>
         </CustomLink>
         <span className="recent-posts__date">
@@ -72,7 +74,6 @@ const BlogPage = () => {
       ? setCategory("")
       : setCategory(selectedCategory);
   };
-  // console.log("текущая категория: ", category);
 
   return (
     <>
@@ -118,71 +119,8 @@ const BlogPage = () => {
                 <h6 className="recent-posts__title">Recent Posts</h6>
                 <ul className="recent-posts__list">{renderRecentPosts()}</ul>
               </div>
-              <div className="blog__tags">
-                <h6 className="blog__tags-title">Tags</h6>
-                <a href="#" className="blog__tags-link">
-                  Dining room futniture
-                </a>
-                <a href="#" className="blog__tags-link">
-                  Chair
-                </a>
-                <a href="#" className="blog__tags-link">
-                  Table
-                </a>
-                <a href="#" className="blog__tags-link">
-                  Bedroom
-                </a>
-                <a href="#" className="blog__tags-link">
-                  Office Furniture
-                </a>
-              </div>
-              <ul className="blog__social">
-                <li className="blog__social-item">
-                  <a href="#" className="contact__social-link">
-                    <img
-                      src={facebook}
-                      alt=""
-                      className="contact__social-link-img"
-                    />
-                  </a>
-                </li>
-                <li className="blog__social-item">
-                  <a href="#" className="contact__social-link">
-                    <img
-                      src={instagram}
-                      alt=""
-                      className="contact__social-link-img"
-                    />
-                  </a>
-                </li>
-                <li className="blog__social-item">
-                  <a href="#" className="contact__social-link">
-                    <img
-                      src={pinterest}
-                      alt=""
-                      className="contact__social-link-img"
-                    />
-                  </a>
-                </li>
-                <li className="blog__social-item">
-                  <a href="#" className="contact__social-link">
-                    <img
-                      src={whatsapp}
-                      alt=""
-                      className="contact__social-link-img"
-                    />
-                  </a>
-                </li>
-                <li className="blog__social-item">
-                  <a href="#" className="contact__social-link">
-                    <img
-                      src={youtube}
-                      alt=""
-                      className="contact__social-link-img"
-                    />
-                  </a>
-                </li>
-              </ul>
+              <BlogTags />
+              <SocialLinks />
             </aside>
           </div>
         </div>

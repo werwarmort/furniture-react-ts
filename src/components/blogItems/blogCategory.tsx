@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Post } from "../pages/blog";
+import { Post } from "../../pages/blog";
 
 interface BlogCategoryProps {
   posts: Post[];
@@ -14,7 +14,6 @@ const BlogCategory: React.FC<BlogCategoryProps> = ({
     [key: string]: number;
   }>({});
   useEffect(() => {
-    // Используем объект для подсчета количества категорий
     const counts: { [key: string]: number } = {};
 
     posts.forEach((post) => {
@@ -27,14 +26,14 @@ const BlogCategory: React.FC<BlogCategoryProps> = ({
     setCategoryCounts(counts);
   }, [posts]);
 
-  const [activeCategory, setActiveCategory] = useState<string | null>(null); // Добавляем состояние для активной категории
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   const handleCategoryClick = (category: string) => {
     if (categoryClick) {
       if (activeCategory === category) {
-        setActiveCategory(null); // Если категория уже активна, снимаем активность
+        setActiveCategory(null);
       } else {
-        setActiveCategory(category); // Иначе делаем категорию активной
+        setActiveCategory(category);
       }
       categoryClick(category);
     }

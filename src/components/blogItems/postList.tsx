@@ -1,32 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import ModalPopup from "./popupRofl/popupVideo.jsx";
-import images from "./BlogStuff.ts";
-import SmallCarousel from "./SmalCarousel-slider/SmallCarousel.tsx";
-import leftArrow from "../images/leftArrowLight.svg";
+import ModalPopup from "../popupRofl/popupVideo.jsx";
+import images from "../BlogImages.ts";
+import SmallCarousel from "../SmalCarousel-slider/SmallCarousel.tsx";
 
-import { Post } from "../pages/blog.tsx";
-
-export interface CustomLinkProps {
-  to: string;
-  post: Post;
-  children: React.ReactNode;
-}
+import { Post } from "../../pages/blog.tsx";
+import CustomLink from "../customLink.tsx";
 
 interface PostListProps {
   fetchedPosts: Post[];
   category?: string;
 }
-
-const CustomLink: React.FC<CustomLinkProps> = ({ to, post, children }) => {
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    navigate(to, { state: { post } });
-  };
-
-  return <div onClick={handleClick}>{children}</div>;
-};
 
 const POSTS_PER_PAGE = 10;
 
@@ -75,7 +58,7 @@ const PostList: React.FC<PostListProps> = ({ fetchedPosts, category }) => {
                 </a>
               </div>
 
-              <CustomLink to={`/blog/${post.postId}`} post={post}>
+              <CustomLink to={`/blog/${post.postId}`} post={post} posts={posts}>
                 <h3 className="blog__item-title">{post.title}</h3>
               </CustomLink>
 
@@ -115,7 +98,11 @@ const PostList: React.FC<PostListProps> = ({ fetchedPosts, category }) => {
                 </a>
               </div>
               <div className="blog__item-link">
-                <CustomLink to={`/blog/${post.postId}`} post={post}>
+                <CustomLink
+                  to={`/blog/${post.postId}`}
+                  post={post}
+                  posts={posts}
+                >
                   <h3 className="blog__item-title">{post.title}</h3>
                 </CustomLink>
               </div>
@@ -155,7 +142,11 @@ const PostList: React.FC<PostListProps> = ({ fetchedPosts, category }) => {
 
       <div className="pagination">
         <button className="pagination__arrow pagination__arrow--disabled">
-          <img src={leftArrow} alt="" className="pagination__arrow-icon" />
+          <img
+            src={images.leftArrow}
+            alt=""
+            className="pagination__arrow-icon"
+          />
         </button>
 
         <ul className="pagination__list">

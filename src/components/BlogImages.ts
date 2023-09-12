@@ -25,13 +25,33 @@ import img24 from "../images/content/blog/img24.jpg";
 import img25 from "../images/content/blog/img25.jpg";
 import img26 from "../images/content/blog/img26.jpg";
 import img27 from "../images/content/blog/img27.jpg";
-// import search from "../images/search.svg";
-// import facebook from "../images/facebook.svg";
-// import instagram from "../images/instagram.svg";
-// import pinterest from "../images/Pinterest.svg";
-// import youtube from "../images/youtube.svg";
-// import whatsapp from "../images/whatsapp.svg";
-// import SimpleSlider from "./gallerySlider/gallerySlider.jpg";
+
+import collection1 from "../images/content/collection-1.jpg";
+import collection2 from "../images/content/collection-2.jpg";
+import collection3 from "../images/content/collection-3.jpg";
+import collection4 from "../images/content/collection-4.jpg";
+import collection5 from "../images/content/collection-5.jpg";
+
+import blogPicture1 from "../images/content/blog/1.jpg";
+import blogPicture2 from "../images/content/blog/2.jpg";
+
+import mesuringTape from "../images/measuring-tape.svg";
+import sofa from "../images/sofa.svg";
+import graphicTool from "../images/graphic-tool.svg";
+import sliderImg from "../images/content/Group1.png";
+
+import search from "../images/search.svg";
+import facebook from "../images/facebook.svg";
+import instagram from "../images/instagram.svg";
+import pinterest from "../images/Pinterest.svg";
+import youtube from "../images/youtube.svg";
+import whatsapp from "../images/whatsapp.svg";
+
+import arrowPrev from "../images/leftArrowLight.svg";
+import arrowNext from "../images/rightArrowLight.svg";
+import avatar from "../images/content/avatar.jpg";
+
+import leftArrow from "../images/leftArrowLight.svg";
 
 const images: { [key: string]: string } = {
   blogImg1,
@@ -61,12 +81,27 @@ const images: { [key: string]: string } = {
   img25,
   img26,
   img27,
-  // search,
-  // facebook,
-  // instagram,
-  // pinterest,
-  // youtube,
-  // whatsapp,
+  collection1,
+  collection2,
+  collection3,
+  collection4,
+  collection5,
+  blogPicture1,
+  blogPicture2,
+  mesuringTape,
+  sofa,
+  graphicTool,
+  sliderImg,
+  search,
+  facebook,
+  instagram,
+  pinterest,
+  youtube,
+  whatsapp,
+  avatar,
+  arrowNext,
+  arrowPrev,
+  leftArrow,
 };
 
 export default images;

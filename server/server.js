@@ -1,12 +1,10 @@
 const express = require("express");
 const fs = require("fs");
 const cors = require("cors");
-const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const app = express();
 app.use(bodyParser.json());
 app.use(express.static("src"));
-const mongoose = require("mongoose");
 
 // Создали экземпляр приложения
 const port = 3001;
@@ -42,12 +40,9 @@ app.get("/comments", (req, res) => {
       return;
     }
     try {
-      // const data = fs.readFile("./server/comments.json", "utf8");
       const comments = JSON.parse(data);
-      // console.log("полученные комменты на сервере: ", comments);
 
       const { postId } = req.query;
-      // console.log("постID пришедший на сервер", postId);
 
       if (postId) {
         const filteredComments = comments.filter(
@@ -55,7 +50,6 @@ app.get("/comments", (req, res) => {
         );
 
         res.json(filteredComments);
-        // console.log("отфильтрованные комменты: ", filteredComments);
       } else {
         res.json(comments);
       }
