@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import React, { useState } from "react";
 
 import collection1 from "../images/content/collection-1.jpg";
 import collection2 from "../images/content/collection-2.jpg";

@@ -68,9 +68,9 @@ const CommentsBlock: React.FC<CommentsBlockProps> = ({ post }) => {
       photo: "none",
       replies: [selectedComment !== null ? selectedComment : null],
     };
-    console.log(JSON.stringify(formData));
+    // console.log(JSON.stringify(formData));
     try {
-      console.log(formData);
+      // console.log(formData);
       const response = await axios.post(
         "http://localhost:3001/addComment",
         formData
