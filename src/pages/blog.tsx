@@ -1,12 +1,5 @@
 import "../scss/style.scss";
 
-import search from "../images/search.svg";
-import facebook from "../images/facebook.svg";
-import instagram from "../images/instagram.svg";
-import pinterest from "../images/Pinterest.svg";
-import youtube from "../images/youtube.svg";
-import whatsapp from "../images/whatsapp.svg";
-
 import { Link, useNavigate } from "react-router-dom";
 import PostList from "../components/blogItems/postList";
 import { useEffect, useState } from "react";
@@ -14,6 +7,7 @@ import BlogCategory from "../components/blogItems/blogCategory";
 import { CustomLinkProps } from "../components/customLink";
 import SocialLinks from "../components/blogItems/socialLInks";
 import BlogTags from "../components/blogItems/blogTags";
+import images from "../components/BlogImages";
 export interface Post {
   category: string;
   postId: number;
@@ -104,7 +98,7 @@ const BlogPage = () => {
                   placeholder="Search"
                 />
                 <button className="aside__search-btn">
-                  <img src={search} alt="" />
+                  <img src={images.search} alt="" />
                 </button>
                 <button className="aside__search-btn" type="submit"></button>
               </form>

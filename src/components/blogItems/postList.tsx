@@ -22,7 +22,7 @@ const PostList: React.FC<PostListProps> = ({ fetchedPosts, category }) => {
   }, [currentPage]);
 
   useEffect(() => {
-    setCurrentPage(1); // Установка текущей страницы в 1 при изменении категории
+    setCurrentPage(1);
   }, [category]);
 
   const filteredPosts =

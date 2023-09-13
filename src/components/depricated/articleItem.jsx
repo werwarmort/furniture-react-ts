@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const BlogArticleItem = () => {
   return (
     <>
@@ -13,11 +15,9 @@ const BlogArticleItem = () => {
             Bedroom Furniture
           </a>
         </div>
-        {/* <Link to="post" className="blog__item-link"> */}
         <Link to="/post" className="blog__item-title">
           Red selfies edison bulb four dollar toast humblebrag for the furniture
         </Link>
-        {/* </Link> */}
         <p className="blog__item-text">
           Everyday carry actually neutra authentic kogi shabby chic migas small
           batch craft beer. Literally williamsburg tote bag farm-to-table

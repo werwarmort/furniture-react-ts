@@ -3199,5 +3199,58 @@
         "replies": []
       }
     ]
+  },
+  {
+    "message": "Валерий, он прав",
+    "name": "Евгений",
+    "email": "abobaHasler@gmail.com",
+    "postId": 3,
+    "date": "September 13, 2023",
+    "commentId": 1694597134634,
+    "photo": "none",
+    "replies": [
+      {
+        "message": "не ругайся",
+        "name": "Валера",
+        "email": "stark.ts645@gmail.com",
+        "postId": 3,
+        "date": "September 5, 2023",
+        "commentId": 1693908069137,
+        "photo": "none",
+        "replies": []
+      }
+    ]
+  },
+  {
+    "message": "И ты иди на хуй",
+    "name": "Не Никита",
+    "email": "stark.ts645@gmail.com",
+    "postId": 3,
+    "date": "September 13, 2023",
+    "commentId": 1694597317761,
+    "photo": "none",
+    "replies": [
+      {
+        "message": "Валерий, он прав",
+        "name": "Евгений",
+        "email": "abobaHasler@gmail.com",
+        "postId": 3,
+        "date": "September 13, 2023",
+        "commentId": 1694597134634,
+        "photo": "none",
+        "replies": [
+          {
+            "message": "не ругайся",
+            "name": "Валера",
+            "email": "stark.ts645@gmail.com",
+            "postId": 3,
+            "date": "September 5, 2023",
+            "commentId": 1693908069137,
+            "photo": "none",
+            "replies": []
+          }
+        ]
+      }
+    ]
   }
 ]

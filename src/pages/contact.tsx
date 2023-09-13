@@ -1,10 +1,5 @@
 import { Link } from "react-router-dom";
-
-import facebook from "../images/facebook.svg";
-import instagram from "../images/instagram.svg";
-import pinterest from "../images/Pinterest.svg";
-import youtube from "../images/youtube.svg";
-import whatsapp from "../images/whatsapp.svg";
+import images from "../components/BlogImages";
 import SimpleSlider from "../components/gallerySlider/gallerySlider";
 
 const ContactPage = () => {
@@ -30,9 +25,7 @@ const ContactPage = () => {
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14995.373360357326!2d-122.41914695847093!3d37.80435822024824!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x808580f18d8c6ea7%3A0x5d7f53fb70a3a903!2zNzI1IEdyZWVuIFN0LCBTYW4gRnJhbmNpc2NvLCBDQSA5NDEzMywg0KHQqNCQ!5e0!3m2!1sru!2sru!4v1690199015039!5m2!1sru!2sru"
           width="100%"
           style={{ border: "0" }}
-          // allowfullscreen=""
           loading="lazy"
-          // referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
 
         <section className="contact">
@@ -43,7 +36,7 @@ const ContactPage = () => {
               <li className="contact__social-item">
                 <a href="#" className="contact__social-link">
                   <img
-                    src={facebook}
+                    src={images.facebook}
                     alt=""
                     className="contact__social-link-img"
                   />
@@ -52,7 +45,7 @@ const ContactPage = () => {
               <li className="contact__social-item">
                 <a href="#" className="contact__social-link">
                   <img
-                    src={instagram}
+                    src={images.instagram}
                     alt=""
                     className="contact__social-link-img"
                   />
@@ -61,7 +54,7 @@ const ContactPage = () => {
               <li className="contact__social-item">
                 <a href="#" className="contact__social-link">
                   <img
-                    src={pinterest}
+                    src={images.pinterest}
                     alt=""
                     className="contact__social-link-img"
                   />
@@ -70,7 +63,7 @@ const ContactPage = () => {
               <li className="contact__social-item">
                 <a href="#" className="contact__social-link">
                   <img
-                    src={whatsapp}
+                    src={images.whatsapp}
                     alt=""
                     className="contact__social-link-img"
                   />
@@ -79,7 +72,7 @@ const ContactPage = () => {
               <li className="contact__social-item">
                 <a href="#" className="contact__social-link">
                   <img
-                    src={youtube}
+                    src={images.youtube}
                     alt=""
                     className="contact__social-link-img"
                   />
