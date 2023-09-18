@@ -60,7 +60,7 @@ const BlogPost = () => {
                 <div className="blog-one__text">
                   <p>{post.mainBody}</p>
                 </div>
-                <BlogTags />
+                {/* <BlogTags /> */} // добавь postTags
                 <div className="blog-one__links">
                   <div className="blog-one__box-prev">
                     <CustomLink

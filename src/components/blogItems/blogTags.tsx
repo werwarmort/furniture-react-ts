@@ -1,22 +1,24 @@
-const BlogTags = () => {
+import { Post } from "../../pages/blog";
+
+interface BlogTagsProps {
+  posts: Post[];
+  tagsClick?: (tag: string) => void;
+  tagsToRender: Array<string>;
+}
+
+const BlogTags: React.FC<BlogTagsProps> = ({ tagsToRender, tagsClick }) => {
   return (
     <div className="blog__tags">
       <h6 className="blog__tags-title">Tags</h6>
-      <a href="#" className="blog__tags-link">
-        Dining room futniture
-      </a>
-      <a href="#" className="blog__tags-link">
-        Chair
-      </a>
-      <a href="#" className="blog__tags-link">
-        Table
-      </a>
-      <a href="#" className="blog__tags-link">
-        Bedroom
-      </a>
-      <a href="#" className="blog__tags-link">
-        Office Furniture
-      </a>
+      {tagsToRender.map((tag, i) => (
+        <span
+          key={i}
+          onClick={() => tagsClick && tagsClick(tag)}
+          className="blog__tags-link"
+        >
+          {tag}
+        </span>
+      ))}
     </div>
   );
 };

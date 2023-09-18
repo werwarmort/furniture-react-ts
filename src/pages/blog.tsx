@@ -62,11 +62,26 @@ const BlogPage = () => {
     ));
   };
 
+  const BlogTagsToRender = [
+    "Office Furniture",
+    "Bedroom",
+    "Table",
+    "Chair",
+    "Dining room futniture",
+  ];
+
   const [category, setCategory] = useState<string>("");
   const handleCategoryClick = (selectedCategory: string) => {
     category === selectedCategory
       ? setCategory("")
       : setCategory(selectedCategory);
+  };
+  const [activeTags, setActiveTags] = useState<string[]>([]);
+  const handleTagsClick = (selectedTags: string) => {
+    const arrayOfTags = activeTags;
+    arrayOfTags.push(selectedTags);
+    setActiveTags(arrayOfTags);
+    console.log(activeTags);
   };
 
   return (
@@ -113,7 +128,11 @@ const BlogPage = () => {
                 <h6 className="recent-posts__title">Recent Posts</h6>
                 <ul className="recent-posts__list">{renderRecentPosts()}</ul>
               </div>
-              <BlogTags />
+              <BlogTags
+                tagsToRender={BlogTagsToRender}
+                posts={posts}
+                tagsClick={handleTagsClick}
+              />
               <SocialLinks />
             </aside>
           </div>

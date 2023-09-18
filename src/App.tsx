@@ -10,7 +10,7 @@ import AboutPage from "./pages/about";
 import BlogPost from "./pages/blogPost";
 import LoginPage from "./pages/LoginPage.tsx";
 import RegisterPage from "./pages/registerPage";
-import Layout from "./layouts/LayOut";
+import Layout from "./layouts/layout.tsx";
 
 import {
   Route,

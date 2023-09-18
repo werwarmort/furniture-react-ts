@@ -2,6 +2,26 @@ const fs = require("fs");
 const faker = require("../node_modules/Faker/Faker");
 const moment = require("moment");
 
+const tags = [
+  "Office Furniture",
+  "Bedroom",
+  "Table",
+  "Chair",
+  "Dining room furniture",
+];
+
+const getRandomTags = () => {
+  const numberOfTags = faker.random.number({ min: 1, max: 3 });
+  const selectedTags = [];
+
+  for (let i = 0; i < numberOfTags; i++) {
+    const randomTag = faker.random.array_element(tags);
+    selectedTags.push(randomTag);
+  }
+
+  return selectedTags;
+};
+
 const generatePosts = (count) => {
   const posts = [];
 
@@ -15,7 +35,7 @@ const generatePosts = (count) => {
       "Restroom furniture",
     ]);
     const postId = i;
-    const date = faker.Date.between(2015, 2023); // Генерация случайной даты в прошлом
+    const date = faker.Date.between(2015, 2023);
     const author = faker.Name.findName();
     const title = faker.Lorem.sentence();
     const previewType = faker.random.array_element(["img", "slider", "video"]);
@@ -62,29 +82,33 @@ const generatePosts = (count) => {
       videoLink = "https://www.youtube.com/embed/4UZrsTqkcW4";
     }
 
-    const body = faker.Lorem.paragraphs(10); // Генерация случайного текста параграфами
+    const body = faker.Lorem.paragraphs(10);
     const mainBody = faker.Lorem.paragraphs(25);
+
+    const postTags = getRandomTags(); // Генерируем теги для поста
 
     if (previewType === "video") {
       posts.push({
         category: category,
         postId: postId,
-        date: moment(date).format("MMMM D, YYYY"), // Форматирование даты
+        date: moment(date).format("MMMM D, YYYY"),
         author: `by ${author}`,
         title: title,
         preview: { type: previewType, link: previewLink, videoLink: videoLink },
         body: body,
+        tags: postTags, // Добавляем теги в пост
       });
     } else if (previewType === "img" || previewType === "slider") {
       posts.push({
         category: category,
         postId: postId,
-        date: moment(date).format("MMMM D, YYYY"), // Форматирование даты
+        date: moment(date).format("MMMM D, YYYY"),
         author: `by ${author}`,
         title: title,
         preview: { type: previewType, link: previewLink },
         body: body,
         mainBody: mainBody,
+        tags: postTags, // Добавляем теги в пост
       });
     }
   }
@@ -92,6 +116,6 @@ const generatePosts = (count) => {
   return posts;
 };
 
-const posts = generatePosts(100); // Генерируем 100 постов
+const posts = generatePosts(100);
 
 fs.writeFileSync("posts.json", JSON.stringify(posts, null, 2));

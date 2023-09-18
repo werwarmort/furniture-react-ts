@@ -837,6 +837,7 @@
     font-size: 23px;
   }
   &__tags-link {
+    cursor: pointer;
     color: #8f8d8d;
     font-weight: 600;
     font-size: 14px;
@@ -846,6 +847,24 @@
     display: inline-block;
     border: 1px solid rgba(#454647, 0.5);
     border-radius: 14px;
+  }
+  &__tags-link:hover {
+    background-color: rgba(#454647, 0.5);
+    transition: 0.3s all;
+    color: #f4f4f4;
+  }
+  &__tags-link--active {
+    cursor: pointer;
+    color: #8f8d8d;
+    font-weight: 600;
+    font-size: 14px;
+    padding: 0 16px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    display: inline-block;
+    border: 1px solid rgba(#ececec, 0.5);
+    border-radius: 14px;
+    background-color: rgba(#454647, 0.5);
   }
   &__social {
     min-width: 100px;
@@ -1257,3 +1276,7 @@
 }
 
 @import "media";
+
+.blog__items {
+  margin: auto;
+}
