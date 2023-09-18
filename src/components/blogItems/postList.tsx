@@ -23,7 +23,7 @@ const PostList: React.FC<PostListProps> = ({ fetchedPosts, category }) => {
 
   useEffect(() => {
     setCurrentPage(1);
-  }, [category]);
+  }, [category, posts]);
 
   const filteredPosts =
     category === ""

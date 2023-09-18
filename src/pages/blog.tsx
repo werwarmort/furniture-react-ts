@@ -16,6 +16,7 @@ export interface Post {
   title: string;
   preview: { type: string; link: string; videoLink?: string };
   body: string;
+  tags: string;
 }
 
 const CustomLink: React.FC<CustomLinkProps> = ({ to, post, children }) => {
@@ -30,6 +31,7 @@ const CustomLink: React.FC<CustomLinkProps> = ({ to, post, children }) => {
 
 const BlogPage = () => {
   const [posts, setPosts] = useState<Post[]>([]);
+  const [sortedPostByTags, setSortedPostByTags] = useState<Post[]>(posts);
   useEffect(() => {
     fetch("http://localhost:3001/posts", {
       headers: {
@@ -39,6 +41,7 @@ const BlogPage = () => {
       .then((response) => response.json())
       .then((data) => {
         setPosts(data);
+        setSortedPostByTags(data);
       });
   }, []);
 
@@ -76,13 +79,25 @@ const BlogPage = () => {
       ? setCategory("")
       : setCategory(selectedCategory);
   };
+
+  // обработка тегов
   const [activeTags, setActiveTags] = useState<string[]>([]);
-  const handleTagsClick = (selectedTags: string) => {
-    const arrayOfTags = activeTags;
-    arrayOfTags.push(selectedTags);
-    setActiveTags(arrayOfTags);
-    console.log(activeTags);
+  const handleTagsClick = (selectedTag: string) => {
+    if (!activeTags.includes(selectedTag)) {
+      setActiveTags([...activeTags, selectedTag]);
+    } else setActiveTags(activeTags.filter((tag) => tag !== selectedTag));
   };
+
+  useEffect(() => {
+    const postToSort = posts.filter((post) => {
+      if (activeTags.length === 0) {
+        return true;
+      }
+      return activeTags.some((tag) => post.tags.includes(tag));
+    });
+    setSortedPostByTags(postToSort);
+  }, [activeTags]);
+  // =========
 
   return (
     <>
@@ -103,7 +118,7 @@ const BlogPage = () => {
       <section className="blog">
         <div className="container">
           <div className="blog__inner">
-            <PostList fetchedPosts={posts} category={category} />
+            <PostList fetchedPosts={sortedPostByTags} category={category} />
 
             <aside className="aside">
               <form className="aside__search">
@@ -120,7 +135,7 @@ const BlogPage = () => {
               <div className="blog__category">
                 <h6 className="blog__category-title">Category</h6>
                 <BlogCategory
-                  posts={posts}
+                  posts={sortedPostByTags}
                   categoryClick={handleCategoryClick}
                 />
               </div>
@@ -132,6 +147,7 @@ const BlogPage = () => {
                 tagsToRender={BlogTagsToRender}
                 posts={posts}
                 tagsClick={handleTagsClick}
+                activeTags={activeTags}
               />
               <SocialLinks />
             </aside>
