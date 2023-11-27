@@ -7,18 +7,12 @@ const tags = [
   "Bedroom",
   "Table",
   "Chair",
-  "Dining room furniture",
+  "Dining room futniture",
 ];
 
 const getRandomTags = () => {
-  const numberOfTags = faker.random.number({ min: 1, max: 3 });
-  const selectedTags = [];
-
-  for (let i = 0; i < numberOfTags; i++) {
-    const randomTag = faker.random.array_element(tags);
-    selectedTags.push(randomTag);
-  }
-
+  const numberOfTags = faker.random.number({ min: 1, max: 3 }); // Генерируем от 1 до 3 тегов
+  const selectedTags = faker.random.array_element(tags, numberOfTags);
   return selectedTags;
 };
 
