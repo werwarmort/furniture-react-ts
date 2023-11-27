@@ -99,6 +99,14 @@ const BlogPage = () => {
   }, [activeTags]);
   // =========
 
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const handleSearchSubmit = () => {
+    const filteredPosts = posts.filter((post) =>
+      post.title.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+    setSortedPostByTags(filteredPosts);
+  };
+
   return (
     <>
       <div className="breadcrumbs">
@@ -121,17 +129,23 @@ const BlogPage = () => {
             <PostList fetchedPosts={sortedPostByTags} category={category} />
 
             <aside className="aside">
-              <form className="aside__search">
+              <div className="aside__search">
                 <input
                   className="aside__search-input"
                   type="text"
                   placeholder="Search"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
                 />
-                <button className="aside__search-btn">
+                <button
+                  className="aside__search-btn"
+                  onClick={handleSearchSubmit}
+                >
                   <img src={images.search} alt="" />
                 </button>
-                <button className="aside__search-btn" type="submit"></button>
-              </form>
+                <button className="aside__search-btn"></button>
+              </div>
+
               <div className="blog__category">
                 <h6 className="blog__category-title">Category</h6>
                 <BlogCategory

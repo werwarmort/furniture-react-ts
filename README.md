@@ -1,3 +1,8 @@
+## run server
+
+nodemon server/server.js
+on directory /furniture-react-ts with node 16.20.2
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

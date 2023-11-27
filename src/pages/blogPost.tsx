@@ -14,6 +14,7 @@ export interface Post {
   preview: { type: string; link: string; videoLink?: string };
   body: string;
   mainBody: string;
+  tags: string;
 }
 export interface FormValues {
   message: string;
