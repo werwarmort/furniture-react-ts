@@ -1,6 +1,6 @@
 ## run server
 
-nodemon server/server.js
+node sever/server.js
 on directory /furniture-react-ts with node 16.20.2
 
 # Getting Started with Create React App
