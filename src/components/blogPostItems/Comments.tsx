@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { FormValues } from "../../pages/blogPost.tsx";
+import { FormValues } from "../../pages/blogPostPage.tsx";
 import moment from "moment";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { Post } from "../../pages/blog.tsx";
+import { Post } from "../../pages/blogPage.tsx";
 import { useAppDispatch } from "../../hooks/redux-hooks.ts";
 import images from "../BlogImages.ts";
 import { removeUser } from "../../store/slices/userSlice.js";

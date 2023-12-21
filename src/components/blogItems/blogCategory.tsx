@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Post } from "../../pages/blog";
+import { Post } from "../../pages/blogPage";
 
 interface BlogCategoryProps {
   posts: Post[];

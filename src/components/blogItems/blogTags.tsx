@@ -1,4 +1,4 @@
-import { Post } from "../../pages/blog";
+import { Post } from "../../pages/blogPage";
 
 interface BlogTagsProps {
   posts: Post[];

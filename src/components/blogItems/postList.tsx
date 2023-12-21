@@ -3,7 +3,7 @@ import ModalPopup from "../popupRofl/popupVideo.jsx";
 import images from "../BlogImages.ts";
 import SmallCarousel from "../SmalCarousel-slider/SmallCarousel.tsx";
 
-import { Post } from "../../pages/blog.tsx";
+import { Post } from "../../pages/blogPage.tsx";
 import CustomLink from "../customLink.tsx";
 
 interface PostListProps {

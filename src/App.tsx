@@ -2,12 +2,12 @@ import "./scss/App.scss";
 import "./scss/style.scss";
 import "./scss/index.scss";
 
-import HomePage from "./pages/home";
-import ContactPage from "./pages/contact";
-import GalleryPage from "./pages/gallery";
-import BlogPage from "./pages/blog";
-import AboutPage from "./pages/about";
-import BlogPost from "./pages/blogPost";
+import HomePage from "./pages/homePage.tsx";
+import ContactPage from "./pages/contactPage.tsx";
+import GalleryPage from "./pages/galleryPage.tsx";
+import BlogPage from "./pages/blogPage.tsx";
+import AboutPage from "./pages/aboutPage.tsx";
+import BlogPost from "./pages/blogPostPage.tsx";
 import LoginPage from "./pages/LoginPage.tsx";
 import RegisterPage from "./pages/registerPage";
 import Layout from "./layouts/Layout.tsx";

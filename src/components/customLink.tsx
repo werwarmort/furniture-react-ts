@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { Post } from "../pages/blog";
+import { Post } from "../pages/blogPage";
 
 export interface CustomLinkProps {
   to: string;
